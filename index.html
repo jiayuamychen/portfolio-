@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://jiayuamychen.com/">
+<meta property="og:title" content="Amy Chen">
+<meta property="og:description" content="Product strategy, UX and design. Economics & Data Science at UC Berkeley.">
+<meta property="og:image" content="https://jiayuamychen.com/assets/arena-main.jpg">
+<meta property="og:url" content="https://jiayuamychen.com/">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Amy Chen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Amy (Jiayu) Chen: product strategy, UX and design. Economics & Data Science at UC Berkeley.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Silkscreen:wght@400;700&family=UnifrakturMaguntia&display=swap">
+<style>
+/* Layout: a pastel desktop computer is the cover; six folders open as windows; below it, a photo hub with the same folders as "parts of me".
+   One deliberate light world (phone-cover palette), so no dark theme. */
+:root{
+  color-scheme:light;
+  /* color */
+  --paper:#FDF8F8; --lav:#EDE6F8; --pink:#F6CCD8; --pink-deep:#DE7895; --check:#C7D5F3; --matcha:#A9C98A; --matcha-deep:#6E9653; --matcha-soft:#E9F2DE;
+  --clover:#8ED46A; --clover-deep:#4FA53B; --gold:#D9A93B; --gold-hi:#F6DC8A;
+  --ink:#2C2833; --ink-soft:#6B6475; --line:#E4DCEB; --white:#FFFFFF; --cream:#FFFBF4;
+  /* type */
+  --f-display:"Fredoka",ui-rounded,"SF Pro Rounded",system-ui,sans-serif;
+  --f-body:"Nunito",ui-rounded,system-ui,-apple-system,sans-serif;
+  --f-pixel:"Silkscreen",ui-monospace,Menlo,monospace;
+  --f-script:"UnifrakturMaguntia",Georgia,serif;
+  /* type scale */
+  --t-xs:.75rem;--t-sm:.875rem;--t-base:1.03rem;--t-md:1.15rem;--t-lg:1.35rem;--t-xl:clamp(1.6rem,3vw,2.2rem);--t-2xl:clamp(2rem,5vw,3.2rem);--t-hero:clamp(2.6rem,7vw,4.6rem);
+  /* radii + space */
+  --r-sm:8px;--r-md:12px;--r-lg:18px;--r-xl:26px;--r-pill:999px;
+  --s1:.25rem;--s2:.5rem;--s3:.75rem;--s4:1rem;--s5:1.5rem;--s6:2rem;--s7:3rem;--s8:4.5rem;
+  --pop:5px 5px 0 var(--pink);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--t-base);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(40vw 30vw at 8% 12%,#F3E3F7 0,transparent 70%),radial-gradient(36vw 28vw at 92% 8%,#E3F3DD 0,transparent 70%),radial-gradient(50vw 30vw at 80% 85%,#FBE1EA 0,transparent 70%),radial-gradient(circle,rgba(169,201,138,.28) 2.2px,transparent 2.6px) 0 0/26px 26px,var(--paper)}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--clover-deep);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.pixel{font-family:var(--f-pixel);letter-spacing:.02em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- reusable components ---------- */
+.lace-frame{--r:7px;padding:calc(var(--r)*2);background:var(--matcha);
+  -webkit-mask:radial-gradient(circle closest-side,#000 96%,#0000) 0 0/calc(2*var(--r)) calc(2*var(--r)) round,linear-gradient(#000 0 0) center/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)) no-repeat;
+  mask:radial-gradient(circle closest-side,#000 96%,#0000) 0 0/calc(2*var(--r)) calc(2*var(--r)) round,linear-gradient(#000 0 0) center/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)) no-repeat}
+.lace-frame.pink{background:var(--pink)}
+.lace-frame>.inner{background:#fff;padding:8px;height:100%}
+.puff{position:absolute;pointer-events:none;filter:drop-shadow(0 4px 6px rgba(222,120,149,.25))}
+.sticker{display:block;color:var(--clover-deep)}
+.tag{display:inline-block;font-family:var(--f-pixel);font-size:.68rem;padding:.12rem .55rem;border-radius:var(--r-pill);border:1.5px solid var(--line);color:var(--ink-soft);background:var(--white)}
+.tag.on{border-color:var(--clover-deep);color:var(--clover-deep);background:#EEF9E8}
+.chip{border:2px solid var(--ink);background:var(--white);border-radius:var(--r-pill);padding:.4rem .95rem;font-weight:700;font-size:.92rem;transition:transform .15s,background .15s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--clover);}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.15rem;border-radius:var(--r-md);font-weight:800;text-decoration:none;border:2px solid var(--ink);background:var(--white);box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.green{background:var(--clover)}
+.card{background:var(--white);border:2px solid var(--ink);border-radius:var(--r-lg);padding:var(--s5);box-shadow:var(--pop)}
+.eyebrow{font-family:var(--f-pixel);font-size:var(--t-xs);color:var(--pink-deep);letter-spacing:.06em}
+
+/* ---------- cover: the computer ---------- */
+.cover{padding-block:var(--s6) var(--s5);position:relative}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s5)}
+.sig{font-family:var(--f-script);font-size:2.4rem;line-height:1;background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,#9C7419);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.6px #8a6512;filter:drop-shadow(1px 2px 0 rgba(156,116,25,.25));text-decoration:none}
+.topline nav{display:flex;gap:var(--s2);flex-wrap:wrap}
+.topline nav a{font-family:var(--f-pixel);font-size:.75rem;text-decoration:none;padding:.3rem .7rem;border-radius:var(--r-pill);background:var(--white);border:1.5px solid var(--line)}
+.topline nav a:hover{border-color:var(--ink)}
+
+.pc{position:relative;max-width:980px;margin:0 auto}
+.monitor{position:relative;background:var(--cream);border:3px solid var(--ink);border-radius:var(--r-xl);padding:16px 16px 44px;box-shadow:8px 10px 0 var(--pink),0 30px 60px -30px rgba(44,40,51,.35)}
+.monitor::after{content:"";position:absolute;left:50%;bottom:14px;width:16px;height:16px;transform:translateX(-50%);background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 40 40'%3E%3Cg fill='%238ED46A' stroke='%232C2833' stroke-width='2'%3E%3Cpath d='M0 0C-10-6-12-16-5-17C-2-17.5 0-15 0-13C0-15 2-17.5 5-17C12-16 10-6 0 0Z'/%3E%3Cpath transform='rotate(90)' d='M0 0C-10-6-12-16-5-17C-2-17.5 0-15 0-13C0-15 2-17.5 5-17C12-16 10-6 0 0Z'/%3E%3Cpath transform='rotate(180)' d='M0 0C-10-6-12-16-5-17C-2-17.5 0-15 0-13C0-15 2-17.5 5-17C12-16 10-6 0 0Z'/%3E%3Cpath transform='rotate(270)' d='M0 0C-10-6-12-16-5-17C-2-17.5 0-15 0-13C0-15 2-17.5 5-17C12-16 10-6 0 0Z'/%3E%3C/g%3E%3C/svg%3E")}
+.led{position:absolute;right:26px;bottom:18px;width:8px;height:8px;border-radius:50%;background:var(--clover);box-shadow:0 0 0 3px #DFF3D4}
+.neck{width:120px;height:46px;margin:0 auto;background:linear-gradient(90deg,#EFE6EE,var(--cream) 40%,#EFE6EE);border-left:3px solid var(--ink);border-right:3px solid var(--ink)}
+.desk{position:relative;margin:0 auto;max-width:980px;height:120px;border:3px solid var(--ink);border-radius:var(--r-lg);
+  background:repeating-conic-gradient(var(--check) 0 25%,var(--white) 0 50%) 0 0/34px 34px;box-shadow:6px 8px 0 var(--lav)}
+.desk::before{content:"";position:absolute;left:-3px;right:-3px;top:-14px;height:16px;background:radial-gradient(circle at 8px 16px,var(--pink) 7px,transparent 7.5px) 0 0/16px 16px repeat-x}
+.base{position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:240px;height:22px;background:var(--cream);border:3px solid var(--ink);border-radius:0 0 40px 40px}
+.keyboard{position:absolute;left:50%;top:34px;transform:translateX(-58%);width:min(52%,440px);height:58px;border:3px solid var(--ink);border-radius:12px;background:var(--cream);padding:7px;box-shadow:0 4px 0 #E6DCE8}
+.keyboard i{display:block;height:100%;border-radius:6px;background:repeating-linear-gradient(90deg,transparent 0 3px,var(--white) 3px 22px,transparent 22px 25px),repeating-linear-gradient(0deg,#EADFEB 0 2px,transparent 2px 13.6px)}
+.mouse{position:absolute;left:calc(50% + min(26%,220px) - 8%);top:30px;width:44px;height:64px;border:3px solid var(--ink);border-radius:22px 22px 24px 24px;background:var(--cream);box-shadow:0 4px 0 #E6DCE8;transition:transform .12s linear}
+.mouse::before{content:"";position:absolute;left:50%;top:0;height:22px;border-left:2px solid var(--ink)}
+.mouse::after{content:"";position:absolute;left:50%;top:8px;width:6px;height:10px;transform:translateX(-50%);border-radius:3px;background:var(--pink-deep)}
+
+/* screen */
+.screen{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;border:3px solid var(--ink);cursor:none;
+  background:linear-gradient(rgba(255,255,255,.28),rgba(255,255,255,.28)),url("assets/wallpaper.jpg") center 42%/cover no-repeat,#FBEFF4}
+.screen .checkpanel{position:absolute;right:-4%;bottom:12%;width:44%;height:52%;transform:rotate(-4deg);opacity:.55;border-radius:10px;
+  background:repeating-conic-gradient(var(--check) 0 25%,#fff 0 50%) 0 0/28px 28px}
+.screen .lace{position:absolute;left:0;right:0;bottom:24%;height:12px;opacity:.6;background:radial-gradient(circle at 6px 0,#F4BCCD 5px,transparent 5.5px) 0 0/12px 12px repeat-x}
+.menubar{position:absolute;inset:0 0 auto;height:28px;display:flex;align-items:center;gap:14px;padding:0 12px;background:rgba(255,255,255,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:2px solid rgba(44,40,51,.12);font-family:var(--f-pixel);font-size:.7rem;z-index:3}
+.menubar b{font-weight:700}
+.menubar .r{margin-left:auto;display:flex;gap:12px;align-items:center}
+.batt{border:1.5px solid var(--ink);border-radius:4px;padding:0 3px;font-size:.62rem;line-height:1.3;background:var(--ink);color:#fff}
+@media (max-width:700px){.menubar .opt{display:none}}
+.clock{position:absolute;left:50%;top:9%;transform:translateX(-50%);text-align:center;color:var(--clover);font-family:var(--f-display);pointer-events:none;z-index:1}
+.clock .d{font-weight:600;font-size:clamp(.85rem,2vw,1.4rem);opacity:.95}
+.clock .t{font-weight:700;font-size:clamp(3rem,10vw,6.4rem);line-height:.95;letter-spacing:.01em;text-shadow:0 2px 0 rgba(79,165,59,.18)}
+.ip{position:absolute;left:4%;bottom:27%;width:23%;aspect-ratio:1;z-index:2}
+.ip img{cursor:none;width:100%;height:100%;object-fit:cover;object-position:50% 38%;border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 2.5px var(--ink),6px 8px 0 rgba(231,127,160,.5);animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px) rotate(-2deg)}}
+.bubble{position:absolute;left:100%;top:6%;margin-left:6%;width:max-content;max-width:14rem;background:#fff;border:2.5px solid var(--ink);border-radius:16px 16px 16px 4px;padding:.45rem .75rem;font-weight:800;font-size:clamp(.7rem,1.5vw,.95rem);line-height:1.35;box-shadow:3px 3px 0 var(--pink)}
+.bubble small{display:block;font-weight:600;color:var(--ink-soft);font-size:.85em}
+.note{position:absolute;right:5%;top:15%;width:21%;background:#FFF6B8;border:2px solid var(--ink);padding:.6rem .7rem .7rem;transform:rotate(3deg);box-shadow:4px 4px 0 rgba(44,40,51,.12);font-size:clamp(.62rem,1.1vw,.82rem);line-height:1.45;z-index:1}
+.note::before{content:"";position:absolute;top:-10px;left:50%;width:44px;height:16px;transform:translateX(-50%) rotate(-4deg);background:rgba(199,213,243,.85);border:1px solid rgba(44,40,51,.2)}
+.note b{font-family:var(--f-pixel);font-size:.95em;display:block;margin-bottom:.2rem}
+.note s{color:var(--ink-soft)}
+.spark{position:absolute;pointer-events:none}
+
+/* dock */
+.dock{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:clamp(4px,1.2vw,14px);padding:10px 16px 6px;border-radius:22px;background:rgba(255,255,255,.55);border:2px solid rgba(44,40,51,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:4;--base:clamp(58px,8.2vw,84px)}
+.folder{all:unset;box-sizing:border-box;cursor:none;width:calc(var(--base) * var(--s,1));display:flex;flex-direction:column;align-items:center;gap:2px;transition:width .12s ease-out;-webkit-tap-highlight-color:transparent}
+.folder svg{width:100%;height:auto;display:block;overflow:visible;filter:drop-shadow(0 3px 0 rgba(44,40,51,.12))}
+.folder span{font-family:var(--f-pixel);font-size:clamp(.5rem,1vw,.66rem);white-space:nowrap;background:rgba(255,255,255,.85);padding:0 .35rem;border-radius:4px;line-height:1.5}
+.folder:focus-visible{outline:3px solid var(--clover-deep);outline-offset:4px;border-radius:10px}
+.cursor{position:absolute;left:0;top:0;width:26px;height:26px;pointer-events:none;z-index:9;transform:translate(-100px,-100px);will-change:transform}
+.cursor .hand{display:none}
+.cursor.point .arrow{display:none}.cursor.point .hand{display:block}
+.cursor.click svg{transform:scale(.85)}
+.hint{position:absolute;right:12px;bottom:calc(3% + 6px);font-family:var(--f-pixel);font-size:.6rem;color:var(--ink-soft);z-index:3;display:none}
+
+@media (max-width:700px){
+  .topline nav{display:none}
+  .monitor{padding:10px 10px 34px;border-radius:20px}
+  .screen{aspect-ratio:4/5}
+  .clock{top:7%}
+  .note{display:none}
+  .ip{left:6%;bottom:30%;width:34%}
+  .bubble{left:auto;right:auto;top:auto;bottom:100%;left:40%;margin:0 0 6px;max-width:11rem}
+  .dock{left:0;right:0;transform:none;bottom:2%;border-radius:0;border-inline:0;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px calc(50% - 38px) 6px;gap:6px;scrollbar-width:none;--base:76px;align-items:center}
+  .dock::-webkit-scrollbar{display:none}
+  .folder{width:var(--base);flex:none;scroll-snap-align:center;transform:scale(var(--s,1));transform-origin:50% 80%;transition:transform .15s ease-out}
+  .hint{display:none;left:0;right:0;text-align:center;bottom:auto;top:calc(100% - 2% - 128px)}
+  .neck{height:30px;width:80px}
+  .desk{height:96px}.base{width:150px}.keyboard{width:60%;height:46px;top:26px;transform:translateX(-62%)}.mouse{left:auto;right:9%;top:24px;width:34px;height:50px}
+}
+
+/* ---------- hub: pro photo + parts of me ---------- */
+.hub{padding-block:var(--s8) var(--s7)}
+.hub h1{font-size:var(--t-hero);font-weight:700;text-align:center;letter-spacing:-.01em}
+.hub h1 .sig{font-size:1.15em;vertical-align:-.05em}
+.hub .lead{text-align:center;max-width:56ch;margin:var(--s4) auto 0;color:var(--ink-soft);font-size:var(--t-md)}
+.hub .status{display:flex;justify-content:center;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4)}
+.parts{display:grid;grid-template-columns:1fr minmax(240px,320px) 1fr;gap:var(--s5) var(--s6);align-items:center;margin-top:var(--s7)}
+.parts .col{display:grid;gap:var(--s4)}
+.part{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:64px 1fr;gap:var(--s3);align-items:center;padding:var(--s3) var(--s4);background:var(--white);border:2px solid var(--ink);border-radius:var(--r-lg);box-shadow:4px 4px 0 var(--c,var(--pink));transition:transform .15s,box-shadow .15s}
+.part:hover{transform:translate(-2px,-2px) rotate(-.6deg);box-shadow:6px 6px 0 var(--c,var(--pink))}
+.part:focus-visible{outline:3px solid var(--clover-deep);outline-offset:3px}
+.part b{display:block;font-family:var(--f-display);font-weight:600;font-size:var(--t-md);line-height:1.2}
+.part small{font-family:var(--f-pixel);font-size:.62rem;color:var(--ink-soft)}
+.polaroid{transform:rotate(-2.5deg);position:relative;filter:drop-shadow(8px 8px 0 var(--pink))}
+.polaroid .lace-frame>.inner{padding:10px 10px 44px;position:relative}
+.polaroid .ph{aspect-ratio:4/5;background:linear-gradient(160deg,var(--lav),var(--pink));display:grid;place-items:center;overflow:hidden;border:2px solid var(--ink)}
+.polaroid .ph img{width:100%;height:100%;object-fit:cover}
+.polaroid .ph .empty{text-align:center;padding:var(--s4);font-family:var(--f-pixel);font-size:.7rem;color:var(--ink-soft)}
+.polaroid .ph .empty img{width:46%;height:auto;border-radius:50%;border:3px solid #fff;margin-bottom:var(--s2)}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:var(--f-display);font-weight:600;font-size:1.15rem}
+.polaroid .tape{z-index:2;position:absolute;top:-10px;left:50%;width:90px;height:24px;transform:translateX(-50%) rotate(3deg);background:rgba(142,212,106,.6);border:1px solid rgba(44,40,51,.2)}
+@media (max-width:860px){.parts{grid-template-columns:1fr 1fr}.parts .mid{grid-column:1/-1;max-width:300px;margin:0 auto;order:-1}.parts .col{display:contents}}
+@media (max-width:520px){.parts{grid-template-columns:1fr}}
+
+footer{border-top:2px dashed var(--line);padding-block:var(--s5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s3);color:var(--ink-soft);font-size:.85rem;align-items:center}
+
+/* ---------- windows ---------- */
+dialog.win{padding:0;border:3px solid var(--ink);border-radius:var(--r-lg);width:min(960px,calc(100vw - 24px));height:min(88vh,880px);max-width:none;max-height:none;background:var(--paper);color:var(--ink);box-shadow:10px 10px 0 var(--c,var(--pink));overflow:hidden}
+dialog.win[open]{display:flex;flex-direction:column}
+dialog.win::backdrop{background:rgba(237,230,248,.65);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.tbar{display:flex;align-items:center;gap:var(--s3);padding:.5rem .75rem;background:var(--c,var(--pink));border-bottom:3px solid var(--ink);cursor:grab;user-select:none;touch-action:none;flex:none}
+.tbar:active{cursor:grabbing}
+.tbar svg{width:28px;flex:none}
+.tbar h2{font-family:var(--f-pixel);font-weight:700;font-size:.9rem;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbar .btns{display:flex;gap:6px}
+.tbar .btns span,.tbar .btns button{width:24px;height:24px;border:2px solid var(--ink);border-radius:6px;background:#fff;display:grid;place-items:center;font-family:var(--f-pixel);font-size:.75rem;line-height:1;padding:0}
+.tbar .btns button{background:var(--pink-deep);color:#fff}
+.addr{flex:none;font-family:var(--f-pixel);font-size:.65rem;padding:.35rem .9rem;border-bottom:2px solid var(--line);background:#fff;color:var(--ink-soft);display:flex;gap:.5rem;overflow:hidden;white-space:nowrap}
+.wbody{flex:1;overflow:auto;padding:var(--s6) clamp(16px,4vw,var(--s7)) var(--s7);overscroll-behavior:contain}
+.whead{display:flex;flex-wrap:wrap;gap:var(--s4);align-items:end;justify-content:space-between;margin-bottom:var(--s5)}
+.whead h3{font-size:var(--t-2xl);font-weight:700}
+.whead p{color:var(--ink-soft);max-width:46ch}
+@media (max-width:700px){dialog.win{width:calc(100vw - 12px);height:calc(100dvh - 24px);box-shadow:5px 5px 0 var(--c,var(--pink))}}
+
+/* work */
+.lens{background:#fff;border:2px dashed var(--ink);border-radius:var(--r-lg);padding:var(--s4) var(--s5);margin-bottom:var(--s5)}
+.lens p.q{font-weight:800;margin-bottom:var(--s2)}
+.lens .chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.pitch{margin-top:var(--s3);color:var(--ink);font-family:var(--f-display);font-weight:500;font-size:var(--t-md)}
+.jobs{display:grid;gap:var(--s3)}
+.job{background:#fff;border:2px solid var(--ink);border-radius:var(--r-lg);transition:opacity .25s,box-shadow .25s}
+.job.dim{opacity:.42}
+.job.hit{box-shadow:5px 5px 0 var(--clover)}
+.job>button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s2) var(--s4);width:100%;padding:var(--s4) var(--s5);cursor:pointer;border-radius:var(--r-lg)}
+.job>button:focus-visible{outline:3px solid var(--clover-deep);outline-offset:2px}
+.job h4{margin:0;font-family:var(--f-display);font-weight:600;font-size:var(--t-lg);display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.badge{font-family:var(--f-pixel);font-size:.62rem;padding:.1rem .45rem;border-radius:5px;background:var(--gold-hi);border:1.5px solid var(--ink)}
+.role{font-weight:700}
+.sum{color:var(--ink-soft);margin-top:.15rem}
+.meta{text-align:right;font-family:var(--f-pixel);font-size:.62rem;color:var(--ink-soft);line-height:1.7;white-space:nowrap}
+.tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:var(--s2)}
+.plus{grid-column:2;justify-self:end;width:28px;height:28px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;transition:transform .25s,background .2s}
+.job[data-open="true"] .plus{transform:rotate(45deg);background:var(--clover)}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.job[data-open="true"] .more{grid-template-rows:1fr}
+.more>div{overflow:hidden}
+.more ul{margin:0;padding:0 var(--s5) var(--s5) calc(var(--s5) + 1.1rem);display:grid;gap:.55rem;max-width:78ch}
+.more b{background:linear-gradient(transparent 58%,#DDF3CF 58%);font-weight:800}
+@media (max-width:600px){.job>button{grid-template-columns:1fr}.meta{text-align:left;white-space:normal}.plus{grid-column:1;justify-self:start}}
+.sub{font-family:var(--f-pixel);font-size:.8rem;margin:var(--s6) 0 var(--s3);color:var(--pink-deep)}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4);margin-top:var(--s6)}
+.skills h5{margin:0 0 var(--s2);font-family:var(--f-pixel);font-size:.72rem;color:var(--ink-soft);font-weight:400}
+.skills .row{display:flex;flex-wrap:wrap;gap:.35rem}
+.sk{font-size:.86rem;padding:.25rem .65rem;border-radius:var(--r-sm);background:#fff;border:1.5px solid var(--line);transition:all .2s}
+.sk.on{background:#EEF9E8;border-color:var(--clover-deep);font-weight:700}
+@media (max-width:700px){.skills{grid-template-columns:1fr}}
+.edu{margin-top:var(--s6);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s3);align-items:center}
+.edu b{font-family:var(--f-display);font-size:var(--t-md)}
+
+/* design */
+.case{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s5);align-items:start}
+.case .himg{all:unset;cursor:zoom-in;display:block;border-radius:var(--r-md);overflow:hidden;border:2px solid var(--ink);background:#fff}
+.case .himg img{display:block;width:100%}
+.case h4{margin:0;font-family:var(--f-display);font-weight:700;font-size:var(--t-xl)}
+.case .medium{font-family:var(--f-pixel);font-size:.65rem;color:var(--ink-soft);margin-top:var(--s2)}
+.case p.d{margin-top:var(--s3);color:var(--ink-soft)}
+.steps{display:grid;gap:var(--s3);margin-top:var(--s4)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:var(--s3)}
+.step i{font-style:normal;font-family:var(--f-pixel);font-size:.7rem;width:1.7rem;height:1.7rem;border-radius:50%;display:grid;place-items:center;background:var(--pink);border:1.5px solid var(--ink)}
+.step b{display:block}.step span{color:var(--ink-soft);font-size:.94rem}
+.strip{grid-column:1/-1;display:flex;gap:var(--s3);overflow-x:auto;padding-bottom:var(--s2);scroll-snap-type:x mandatory}
+.strip button{all:unset;cursor:zoom-in;flex:0 0 auto;width:min(200px,58vw);border:2px solid var(--ink);border-radius:var(--r-md);overflow:hidden;background:#fff;scroll-snap-align:start}
+.strip img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.strip figcaption{font-family:var(--f-pixel);font-size:.6rem;padding:.35rem .55rem;color:var(--ink-soft)}
+@media (max-width:760px){.case{grid-template-columns:1fr}}
+.tabs{display:flex;gap:var(--s2);flex-wrap:wrap;margin:var(--s7) 0 var(--s3)}
+.knote{color:var(--ink-soft);margin-bottom:var(--s4);max-width:66ch}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3)}
+.grid4 button{all:unset;cursor:zoom-in;border-radius:var(--r-md);overflow:hidden;border:2px solid var(--ink);background:#fff;transition:transform .2s}
+.grid4 button:hover{transform:translateY(-4px) rotate(-1deg)}
+.grid4 img{display:block;width:100%;object-fit:cover}
+.grid4.sq img{aspect-ratio:1}.grid4.tall img{aspect-ratio:4/5}
+@media (max-width:700px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* art */
+.gallery{columns:3 220px;column-gap:var(--s4)}
+.gallery button{all:unset;cursor:zoom-in;display:block;width:100%;margin:0 0 var(--s4);break-inside:avoid;background:#fff;border:2px solid var(--ink);padding:8px 8px 0;box-shadow:4px 4px 0 var(--lav);transition:transform .2s}
+.gallery button:nth-child(odd){transform:rotate(-.8deg)}.gallery button:nth-child(even){transform:rotate(.8deg)}
+.gallery button:hover{transform:rotate(0) scale(1.02)}
+.gallery img{display:block;width:100%}
+.gallery .cap{font-family:var(--f-pixel);font-size:.6rem;color:var(--ink-soft);padding:.45rem .1rem .5rem}
+
+/* hockey */
+.rink{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s6);align-items:center}
+.rink ul{list-style:none;padding:0;margin:var(--s4) 0 0;display:grid;gap:var(--s3)}
+.rink li{display:grid;grid-template-columns:4.2rem 1fr;gap:var(--s2);align-items:baseline}
+.rink li b{font-family:var(--f-pixel);font-size:.7rem;color:#3F6FB8}
+.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);margin-top:var(--s6)}
+.reel{aspect-ratio:9/16;border-radius:var(--r-lg);border:2px solid var(--ink);background:linear-gradient(170deg,#DCE7FA,#F6EEFC);display:flex;flex-direction:column;justify-content:flex-end;padding:var(--s3);text-decoration:none;position:relative;overflow:hidden}
+.reel .play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:#fff;border:2px solid var(--ink);display:grid;place-items:center}
+.reel .play::after{content:"";border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.reel b{font-family:var(--f-display);font-weight:600}
+.reel small{font-family:var(--f-pixel);font-size:.58rem;color:var(--ink-soft)}
+.reel.empty{border-style:dashed;background:#fff}
+@media (max-width:760px){.rink{grid-template-columns:1fr}.reels{gap:var(--s2)}}
+
+/* in progress board */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);align-items:start}
+.bcol{background:var(--matcha-soft);border:2px dashed var(--matcha);border-radius:var(--r-lg);padding:var(--s3);display:grid;gap:var(--s3)}
+.bh{font-family:var(--f-pixel);font-size:.72rem;display:flex;justify-content:space-between;color:var(--matcha-deep)}
+.bh span{background:#fff;border:1.5px solid var(--matcha);border-radius:var(--r-pill);padding:0 .45rem}
+.idea{background:#fff;border:2px solid var(--ink);border-radius:var(--r-md);padding:var(--s3) var(--s4);box-shadow:3px 3px 0 var(--pink)}
+.idea h4{margin:0 0 .2rem;font-family:var(--f-display);font-weight:600;font-size:var(--t-md)}
+.idea p{color:var(--ink-soft);font-size:.92rem}
+.idea.empty{border-style:dashed;box-shadow:none;text-align:center;display:grid;justify-items:center;gap:.3rem;padding:var(--s4);background:rgba(255,255,255,.6)}
+.idea.empty p{font-family:var(--f-pixel);font-size:.62rem}
+@media (max-width:760px){.board{grid-template-columns:1fr}}
+
+/* id card */
+.idcard{display:flex;gap:var(--s3);align-items:center;background:#fff;border:2px solid var(--ink);border-radius:var(--r-lg);padding:.5rem .9rem .5rem .5rem;box-shadow:4px 4px 0 var(--matcha)}
+.idcard img{width:64px;height:64px;border-radius:12px;object-fit:cover;object-position:50% 20%;border:2px solid var(--ink)}
+.idcard b{display:block;font-family:var(--f-display);font-weight:600}
+.idcard small{font-family:var(--f-pixel);font-size:.6rem;color:var(--ink-soft)}
+
+/* life */
+.life{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4)}
+.life .card{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s4) var(--s5)}
+.life .k{font-family:var(--f-pixel);font-size:.62rem;color:var(--pink-deep)}
+.life h4{margin:0;font-family:var(--f-display);font-weight:600;font-size:var(--t-lg)}
+.life p{color:var(--ink-soft);font-size:.95rem}
+.life .photo{padding:0;overflow:hidden;grid-row:span 2}
+.life .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.life .wide{grid-column:span 2}
+.dice{display:flex;gap:var(--s4);align-items:center;flex-wrap:wrap;margin-top:var(--s5);padding:var(--s4) var(--s5);border:2px dashed var(--ink);border-radius:var(--r-lg);background:#fff}
+.dice p{flex:1;min-width:0;font-family:var(--f-display);font-weight:600;font-size:var(--t-md)}
+@media (max-width:760px){.life{grid-template-columns:1fr 1fr}.life .photo{grid-column:span 2;grid-row:auto;max-height:380px}}
+@media (max-width:480px){.life{grid-template-columns:1fr}.life .photo,.life .wide{grid-column:auto}}
+
+/* contact */
+.hi{display:grid;grid-template-columns:auto 1fr;gap:var(--s6);align-items:center}
+.hi img{width:min(220px,40vw);border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 3px var(--ink),8px 8px 0 var(--pink)}
+.hi h3{font-size:var(--t-2xl);font-weight:700}
+.reach{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5);align-items:center}
+.email{font-family:var(--f-pixel);font-size:.8rem;padding:.65rem .9rem;border:2px solid var(--ink);border-radius:var(--r-md);background:#fff;user-select:all;overflow-wrap:anywhere}
+.toast{font-family:var(--f-pixel);font-size:.7rem;color:var(--clover-deep)}
+@media (max-width:640px){.hi{grid-template-columns:1fr;justify-items:start}}
+
+
+/* ---------- desktop icons ---------- */
+.dicons{position:absolute;left:3%;top:9%;display:flex;gap:10px;z-index:3}
+.dicon{all:unset;box-sizing:border-box;cursor:none;width:70px;display:grid;justify-items:center;gap:3px;text-align:center}
+.dicon svg{width:46px;height:46px;filter:drop-shadow(0 3px 0 rgba(44,40,51,.15));transition:transform .15s}
+.dicon:hover svg{transform:translateY(-3px) rotate(-4deg)}
+.dicon span{font-family:var(--f-pixel);font-size:.52rem;line-height:1.35!important;background:rgba(255,255,255,.88);padding:0 .3rem;border-radius:4px;line-height:1.5}
+.dicon:focus-visible{outline:3px solid var(--clover-deep);outline-offset:3px;border-radius:8px}
+.decorating #openStickers span{background:var(--clover)}
+@media (max-width:700px){.dicons{flex-direction:column;gap:4px}.dicon{width:58px}.dicon svg{width:34px;height:34px}.dicon span{font-size:.45rem}}
+
+/* ---------- desktop pets ---------- */
+.pet{position:absolute;left:0;top:0;width:clamp(78px,11vw,112px);z-index:3;cursor:none;touch-action:manipulation}
+.pet .bod{position:relative}
+.pet svg{width:100%;height:auto;display:block;overflow:visible;transform:scaleX(var(--dir,1))}
+.pet .leg{transform-box:fill-box;transform-origin:50% 0}
+.pet .tail{transform-box:fill-box;transform-origin:100% 100%}
+.pet .eye{transform-box:fill-box;transform-origin:50% 50%;transition:transform .2s}
+.pet.walk .leg.a{animation:step .3s ease-in-out infinite alternate}
+.pet.walk .leg.b{animation:step .3s ease-in-out infinite alternate-reverse}
+.pet.walk .bod{animation:hop .3s ease-in-out infinite alternate}
+.pet.cat.sit .tail{animation:wag 1.3s ease-in-out infinite alternate}
+.pet.dog .tail,.pet.happy .tail{animation:wag .22s ease-in-out infinite alternate}
+.pet.sleep .tail{animation:none}
+.pet.sleep .eye{transform:scaleY(.12)}
+.pet.happy .bod{animation:hop .18s ease-in-out 4 alternate}
+@keyframes step{from{transform:rotate(20deg)}to{transform:rotate(-20deg)}}
+@keyframes hop{to{transform:translateY(-3px)}}
+@keyframes wag{from{transform:rotate(-14deg)}to{transform:rotate(16deg)}}
+.pet .zz{position:absolute;right:4px;top:-12px;font-family:var(--f-pixel);font-size:.62rem;color:var(--ink-soft);display:none;animation:zz 2.2s ease-in-out infinite}
+.pet.sleep .zz{display:block}
+@keyframes zz{0%{opacity:0;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}
+.pet .say{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:2px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:.05rem .45rem;font-family:var(--f-pixel);font-size:.58rem;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.pet.talk .say{opacity:1}
+.heart{position:absolute;left:0;top:0;width:16px;height:15px;pointer-events:none;z-index:8;animation:floatup 1s ease-out forwards}
+@keyframes floatup{to{translate:0 -40px;scale:1.3;opacity:0}}
+@media (max-width:700px){.pet{width:66px}}
+
+/* ---------- stickers ---------- */
+.stickers{position:absolute;inset:0;z-index:2;pointer-events:none}
+.stk{position:absolute;width:var(--sz,46px);height:var(--sz,46px);transform:translate(-50%,-50%) rotate(var(--r,0deg));display:grid;place-items:center;touch-action:none;
+  filter:drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 3px 2px rgba(44,40,51,.22))}
+.stk svg{width:100%;height:100%;overflow:visible}
+.stk .face{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 38%;box-shadow:0 0 0 1.5px var(--ink)}
+.stk.amy{width:auto;height:auto}.stk .sig{font-size:2rem}
+.decorating .stk{pointer-events:auto;cursor:none}
+.decorating .stk.drag{scale:1.12;z-index:5}
+.tray{position:absolute;left:50%;top:34px;transform:translateX(-50%);z-index:6;width:min(94%,620px);background:#fff;border:2.5px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--pink);overflow:hidden}
+.tray .th{display:flex;align-items:center;gap:6px;padding:.3rem .5rem;background:var(--matcha-soft);border-bottom:2px solid var(--ink);font-family:var(--f-pixel);font-size:.58rem}
+.tray .th b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
+.tray .th button{font-family:var(--f-pixel);font-size:.56rem;border:1.5px solid var(--ink);background:#fff;border-radius:6px;padding:.1rem .45rem;cursor:none}
+.tray .th button.done{background:var(--clover)}
+.tray .items{display:flex;gap:6px;padding:8px;overflow-x:auto;scrollbar-width:thin}
+.titem{all:unset;box-sizing:border-box;flex:none;width:42px;height:42px;display:grid;place-items:center;border-radius:10px;border:1.5px dashed var(--line);cursor:none;touch-action:none}
+.titem:hover{background:var(--matcha-soft);border-color:var(--matcha)}
+.titem svg,.titem img{width:30px;height:30px}
+.titem img{border-radius:50%;object-fit:cover;object-position:50% 38%}
+.titem .sig{font-size:1.15rem}
+
+/* ---------- clover catch ---------- */
+dialog#win-game{width:min(760px,calc(100vw - 24px));height:min(84vh,660px)}
+.gamebody{padding:0;display:flex;overflow:hidden}
+.game{position:relative;flex:1;min-height:0;background:radial-gradient(circle,rgba(169,201,138,.35) 2px,transparent 2.5px) 0 0/22px 22px,linear-gradient(#FCEFF4,#F1F7EA)}
+.game canvas{display:block;width:100%;height:100%;touch-action:none;outline:none}
+.game::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:radial-gradient(circle at 7px 14px,var(--matcha) 6px,transparent 6.5px) 0 0/14px 14px repeat-x;pointer-events:none}
+.ghud{position:absolute;left:14px;right:14px;top:10px;display:flex;justify-content:space-between;align-items:center;font-family:var(--f-pixel);font-size:.72rem;pointer-events:none}
+.ghud b{font-size:1.05rem}
+.ghud svg{width:22px;height:20px}
+.ghud #glives{display:flex;gap:3px}
+.gover{position:absolute;inset:0;display:grid;place-items:center;background:rgba(253,248,248,.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.gcard{background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-lg);box-shadow:6px 6px 0 var(--pink);padding:var(--s5);text-align:center;max-width:min(360px,90%);display:grid;gap:var(--s3);justify-items:center}
+.gcard h4{margin:0;font-family:var(--f-display);font-weight:700;font-size:var(--t-xl)}
+.gcard p{color:var(--ink-soft)}
+.glegend{list-style:none;margin:0;padding:0;display:flex;gap:var(--s4);font-family:var(--f-pixel);font-size:.62rem}
+.glegend li{display:grid;justify-items:center;gap:3px}
+.glegend svg{width:28px;height:28px}
+.gkeys{font-family:var(--f-pixel);font-size:.58rem}
+
+/* ---------- chat ---------- */
+dialog#win-chat{width:min(880px,calc(100vw - 24px));height:min(82vh,700px)}
+.chatbody{padding:0;display:grid;grid-template-columns:230px minmax(0,1fr);overflow:hidden}
+.pals{border-right:2px solid var(--line);background:#fff;padding:var(--s3);display:grid;align-content:start;gap:var(--s2)}
+.pal{all:unset;box-sizing:border-box;display:grid;grid-template-columns:46px minmax(0,1fr);gap:.6rem;align-items:center;padding:.5rem;border-radius:var(--r-md);cursor:pointer;border:2px solid transparent}
+.pal:hover{background:var(--paper)}
+.pal[aria-selected="true"]{background:var(--matcha-soft);border-color:var(--matcha)}
+.pal:focus-visible{outline:3px solid var(--clover-deep);outline-offset:2px}
+.pal img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--ink)}
+.pal b{display:block;font-family:var(--f-display);font-weight:600}
+.pal small,.chead small{display:block;font-family:var(--f-pixel);font-size:.52rem;color:var(--ink-soft);line-height:1.5}
+.convo{display:flex;flex-direction:column;min-width:0;min-height:0}
+.chead{display:flex;gap:.7rem;align-items:center;padding:.6rem var(--s4);border-bottom:2px solid var(--line);background:#fff;flex:none}
+.chead>img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--ink)}
+.chead b{font-family:var(--f-display);font-weight:600;font-size:var(--t-md)}
+.chead .photos{margin-left:auto;display:flex;gap:4px;overflow-x:auto;max-width:50%}
+.chead .photos button{all:unset;cursor:zoom-in;flex:none}
+.chead .photos img{width:36px;height:36px;border-radius:8px;object-fit:cover;border:1.5px solid var(--ink);display:block}
+.msgs{flex:1;overflow:auto;padding:var(--s4);display:flex;flex-direction:column;gap:.55rem;overscroll-behavior:contain;
+  background:radial-gradient(circle,rgba(169,201,138,.25) 2px,transparent 2.5px) 0 0/22px 22px,var(--paper)}
+.msg{max-width:80%;padding:.5rem .85rem;border:2px solid var(--ink);border-radius:16px 16px 16px 4px;background:#fff;line-height:1.45;font-size:.97rem;overflow-wrap:anywhere;align-self:flex-start}
+.msg.me{align-self:flex-end;background:#DDF0CF;border-radius:16px 16px 4px 16px}
+.msg .go{display:block;margin-top:.45rem;font-family:var(--f-pixel);font-size:.6rem;border:1.5px solid var(--ink);background:var(--pink);border-radius:8px;padding:.2rem .55rem;cursor:pointer}
+.msg.typing{display:flex;gap:4px;padding:.65rem .8rem}
+.msg.typing span{width:7px;height:7px;border-radius:50%;background:var(--ink-soft);animation:dot 1s infinite}
+.msg.typing span:nth-child(2){animation-delay:.15s}.msg.typing span:nth-child(3){animation-delay:.3s}
+@keyframes dot{50%{transform:translateY(-4px);opacity:.4}}
+.chips2{display:flex;gap:.4rem;overflow-x:auto;padding:.55rem var(--s4);border-top:2px dashed var(--line);background:#fff;flex:none}
+.chips2 .chip{flex:none;font-size:.82rem;padding:.3rem .75rem;border-width:1.5px}
+.composer{display:flex;gap:.5rem;padding:.4rem var(--s4) .8rem;background:#fff;flex:none}
+.composer input{flex:1;min-width:0;border:2px solid var(--ink);border-radius:var(--r-pill);padding:.55rem .95rem;font:inherit;background:var(--paper);color:var(--ink)}
+.composer input:focus-visible{outline:3px solid var(--clover-deep);outline-offset:1px}
+@media (max-width:700px){
+  .chatbody{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .pals{border-right:0;border-bottom:2px solid var(--line);display:flex;overflow-x:auto;padding:.4rem}
+  .pal{grid-template-columns:34px auto;flex:none;padding:.3rem .55rem}.pal img{width:34px;height:34px}.pal small{display:none}
+  .chead .photos{display:none}
+}
+.life .pets .petpics{display:flex;gap:.5rem}
+.life .pets .petpics img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--pink)}
+
+/* lightbox */
+#lb{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:94vh;color:#fff}
+#lb::backdrop{background:rgba(44,40,51,.86)}
+#lb img{max-width:100%;max-height:82vh;display:block;margin:auto;border:4px solid #fff;border-radius:6px}
+#lb .bar{display:flex;justify-content:space-between;gap:var(--s4);align-items:center;padding-top:var(--s3);font-family:var(--f-pixel);font-size:.7rem;flex-wrap:wrap}
+#lb .bar button{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:8px;padding:.3rem .7rem;font-family:var(--f-pixel);font-size:.7rem}
+</style>
+</head>
+<body>
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="leaf" d="M0 0C-10-6-12-16-5-17C-2-17.5 0-15 0-13C0-15 2-17.5 5-17C12-16 10-6 0 0Z"/>
+    <symbol id="clover" viewBox="-22 -22 44 50"><g stroke="#2C2833" stroke-width="1.8" fill="#8ED46A"><use href="#leaf"/><use href="#leaf" transform="rotate(90)"/><use href="#leaf" transform="rotate(180)"/><use href="#leaf" transform="rotate(270)"/></g><path d="M2 4 Q6 16 2 26" stroke="#4FA53B" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="star" viewBox="-12 -12 24 24"><path d="M0-10 2.9-3.2 10-3.1 4.5 1.5 6.2 8.6 0 4.8-6.2 8.6-4.5 1.5-10-3.1-2.9-3.2Z" stroke-linejoin="round"/></symbol>
+    <linearGradient id="holo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9D3DE"/><stop offset=".45" stop-color="#F2A9BF"/><stop offset=".75" stop-color="#C9DDB2"/><stop offset="1" stop-color="#7FAE5E"/></linearGradient>
+    <radialGradient id="holoHi" cx=".4" cy=".35" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <symbol id="puff" viewBox="-10 -10 20 20"><path d="M0-10C.9-3 3-1 10 0 3 1 .9 3 0 10-.9 3-3 1-10 0-3-1-.9-3 0-10Z" fill="url(#holo)"/><path d="M0-10C.9-3 3-1 10 0 3 1 .9 3 0 10-.9 3-3 1-10 0-3-1-.9-3 0-10Z" fill="url(#holoHi)"/></symbol>
+    <symbol id="button" viewBox="-12 -12 24 24"><circle r="11" fill="#9FC57F" stroke="#2C2833" stroke-width="1.5"/><circle r="8" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1"/><g fill="#5E8746"><circle cx="-2.6" cy="-2.6" r="1.6"/><circle cx="2.6" cy="-2.6" r="1.6"/><circle cx="-2.6" cy="2.6" r="1.6"/><circle cx="2.6" cy="2.6" r="1.6"/></g><path d="M-2.6-2.6 2.6 2.6M2.6-2.6-2.6 2.6" stroke="#fff" stroke-width="1.2"/></symbol>
+    <symbol id="berry" viewBox="-12 -13 24 26"><path d="M0 11C-7 7-10 1-9-4C-8-8-4-9 0-8C4-9 8-8 9-4C10 1 7 7 0 11Z" fill="#F07C93" stroke="#2C2833" stroke-width="1.5"/><g fill="#FFF3B0"><circle cx="-4" cy="-2" r=".9"/><circle cx="3" cy="-3" r=".9"/><circle cx="0" cy="2" r=".9"/><circle cx="-3" cy="5" r=".9"/><circle cx="4" cy="3" r=".9"/></g><path d="M-6-8C-3-11 0-9 0-12C0-9 3-11 6-8C3-7 0-8 0-7C0-8-3-7-6-8Z" fill="#8ED46A" stroke="#2C2833" stroke-width="1.2"/></symbol>
+    <symbol id="puck" viewBox="-12 -9 24 18"><ellipse cy="2.5" rx="11" ry="5" fill="#2C2833"/><ellipse cy="-1" rx="11" ry="5" fill="#4A4451" stroke="#2C2833" stroke-width="1.5"/></symbol>
+    <symbol id="heart" viewBox="-10 -9 20 18"><path d="M0 8C-6 4-9 0-9-3.5C-9-6.5-6.5-8-4.5-8C-2.5-8-1-7 0-5.5C1-7 2.5-8 4.5-8C6.5-8 9-6.5 9-3.5C9 0 6 4 0 8Z" fill="#E77FA0" stroke="#2C2833" stroke-width="1.4"/></symbol>
+    <symbol id="bow" viewBox="-14 -10 28 22"><path d="M0 0C-5-8-13-8-12 0C-13 8-5 6 0 0Z" fill="#F6CCD8" stroke="#2C2833" stroke-width="1.5"/><path d="M0 0C5-8 13-8 12 0C13 8 5 6 0 0Z" fill="#F6CCD8" stroke="#2C2833" stroke-width="1.5"/><path d="M-2 1-6 11M2 1 6 11" stroke="#DE7895" stroke-width="3" stroke-linecap="round"/><circle r="2.6" fill="#DE7895" stroke="#2C2833" stroke-width="1.2"/></symbol>
+    <symbol id="paw" viewBox="-12 -12 24 24"><g fill="#F4A65B" stroke="#2C2833" stroke-width="1.4"><ellipse cy="4" rx="6.5" ry="5.5"/><circle cx="-7" cy="-3" r="2.8"/><circle cx="-2.5" cy="-7" r="2.8"/><circle cx="2.5" cy="-7" r="2.8"/><circle cx="7" cy="-3" r="2.8"/></g></symbol>
+    <symbol id="sparkle" viewBox="-10 -10 20 20"><path d="M0-10C1-3 3-1 10 0 3 1 1 3 0 10-1 3-3 1-10 0-3-1-1-3 0-10Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="topline">
+      <a class="sig" href="#top" id="top" aria-label="Amy Chen, home">Amy</a>
+      <nav aria-label="Folders" id="topnav"></nav>
+    </div>
+
+    <div class="pc">
+      <svg class="puff" style="left:-3%;top:-4%;width:64px;z-index:2" aria-hidden="true"><use href="#puff"/></svg>
+      <svg class="puff" style="right:-2%;top:38%;width:44px;z-index:2" aria-hidden="true"><use href="#puff"/></svg>
+      <svg class="puff" style="right:6%;top:-3%;width:30px;z-index:2" aria-hidden="true"><use href="#puff"/></svg>
+      <div class="monitor">
+        <div class="screen" id="screen">
+          <div class="lace" aria-hidden="true"></div>
+          <div class="menubar" aria-hidden="true">
+            <svg width="14" height="16"><use href="#clover"/></svg>
+            <b>Amy OS</b><span class="opt">File</span><span class="opt">Edit</span><span class="opt">View</span><span class="opt">Help</span>
+            <span class="r"><span class="opt">Wi-Fi</span><span class="batt">88</span><span id="mclock">Fri 2:38</span></span>
+          </div>
+          <div class="clock" aria-hidden="true"><div class="d" id="cdate">Fri Nov 13</div><div class="t" id="ctime">2:38</div></div>
+
+          <div class="note" aria-hidden="true"><b>to-do</b>☑ paint something<br>☑ film Cal hockey<br>☑ KOSMOS practice<br>☐ <s>sleep</s><br>☐ summer 2027 internship</div>
+
+          <svg class="spark" style="left:30%;top:12%;width:5%" aria-hidden="true"><use href="#puff"/></svg>
+          <svg class="spark" style="left:66%;top:44%;width:3.4%" aria-hidden="true"><use href="#puff"/></svg>
+          <svg class="spark" style="left:46%;top:40%;width:2.6%;fill:#F4BCCD;stroke:#2C2833;stroke-width:1" aria-hidden="true"><use href="#star"/></svg>
+          <svg class="spark" style="left:84%;top:58%;width:5%" aria-hidden="true"><use href="#clover"/></svg>
+
+          <div class="stickers" id="stickers"></div>
+          <div class="dicons">
+            <button class="dicon" id="openGame" aria-label="Play Clover Catch"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="3" width="32" height="42" rx="6" fill="#F6CCD8" stroke="#2C2833" stroke-width="2.5"/><rect x="13" y="8" width="22" height="16" rx="2" fill="#E9F2DE" stroke="#2C2833" stroke-width="2"/><use href="#clover" x="18" y="9" width="12" height="14"/><path d="M15 33h8M19 29v8" stroke="#2C2833" stroke-width="3" stroke-linecap="round"/><circle cx="31" cy="31" r="2.6" fill="#DE7895" stroke="#2C2833" stroke-width="1.2"/><circle cx="35" cy="36" r="2.6" fill="#8ED46A" stroke="#2C2833" stroke-width="1.2"/></svg><span>clover<br>catch.exe</span></button>
+            <button class="dicon" id="openStickers" aria-label="Decorate the desktop with stickers" aria-pressed="false"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 6h26l8 8v26a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z" fill="#fff" stroke="#2C2833" stroke-width="2.5"/><path d="M34 6v8h8" fill="#F6CCD8" stroke="#2C2833" stroke-width="2" stroke-linejoin="round"/><use href="#heart" x="9" y="11" width="14" height="13"/><use href="#puff" x="22" y="20" width="17" height="17"/><use href="#clover" x="9" y="25" width="12" height="14"/></svg><span>sticker<br>desk.app</span></button>
+          </div>
+          <div class="tray" id="tray" hidden>
+            <div class="th"><b>sticker_desk · drag a sticker onto the desktop</b><button id="stkUndo">undo</button><button id="stkClear">clear</button><button class="done" id="stkDone">done</button></div>
+            <div class="items" id="trayItems"></div>
+          </div>
+          <div class="ip">
+            <img src="assets/ip-face.jpg" alt="Amy's illustrated character: a girl with long black hair, big eyes, freckles and clover hair clips">
+            <div class="bubble">hi, I'm Amy!<small>tap me to ask a question, or chat with Gongzi & Yodi</small></div>
+          </div>
+
+          <div class="dock" id="dock" role="toolbar" aria-label="Folders"></div>
+          <p class="hint" aria-hidden="true">← swipe the folders →</p>
+
+          <div class="cursor" id="cursor" aria-hidden="true">
+            <svg class="arrow" viewBox="0 0 13 20" shape-rendering="crispEdges" width="26" height="40"><path d="M1 1v15l4-4 3 6 2-1-3-6h5z" fill="#fff" stroke="#2C2833" stroke-width="1.4"/></svg>
+            <svg class="hand" viewBox="0 0 16 18" shape-rendering="crispEdges" width="30" height="34"><path d="M5 1h2v7h1V5h2v3h1V6h2v3h1V8h1v6l-2 3H5l-3-4V9h2v2h1z" fill="#fff" stroke="#2C2833" stroke-width="1.2"/></svg>
+          </div>
+        </div>
+        <span class="led" aria-hidden="true"></span>
+      </div>
+      <div class="neck" aria-hidden="true"></div>
+      <div class="desk" aria-hidden="true">
+        <span class="base"></span>
+        <span class="keyboard"><i></i></span>
+        <span class="mouse" id="pmouse"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hub" id="me">
+    <div class="wrap">
+      <h1>Hi, I'm <span class="sig">Amy</span> Chen</h1>
+      <p class="lead">Economics & Data Science at UC Berkeley. I do product strategy and data analysis, I design, I paint, and I film Cal Ice Hockey. Each folder holds a different part of me.</p>
+      <div class="status"><span class="tag on">open to Summer 2027 internships</span><span class="tag">PM · UX/UI · product design · data</span><span class="tag">Berkeley, CA</span></div>
+      <div class="parts">
+        <div class="col" id="partsL"></div>
+        <figure class="polaroid mid" style="margin:0">
+          <span class="tape" aria-hidden="true"></span>
+          <div class="lace-frame"><div class="inner">
+            <div class="ph" id="photo"></div>
+            <figcaption>Jiayu Amy Chen</figcaption>
+          </div></div>
+        </figure>
+        <div class="col" id="partsR"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap"><footer><span>© 2026 Amy Chen</span><span style="display:flex;gap:.4rem;align-items:center">designed & drawn by Amy <svg width="16" height="18" aria-hidden="true"><use href="#clover"/></svg></span></footer></div>
+
+<!-- ======== windows ======== -->
+<dialog class="win" id="win-work" aria-labelledby="t-work">
+  <div class="tbar"><span class="fi"></span><h2 id="t-work">product_work</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / product_work</div>
+  <div class="wbody">
+    <div class="whead"><div><p class="eyebrow">PART OF ME · PRODUCT & DATA</p><h3>Product & data work</h3></div><div class="idcard"><img src="assets/amy-pro.jpg" alt="Amy Chen in a black blazer outside a campus building"><div><b>Jiayu Amy Chen</b><small>ECON & DATA SCIENCE · UC BERKELEY '28</small></div></div></div>
+    <div class="lens"><p class="q" id="lensq">Who's visiting? Pick one and the roles that fit get a green glow. Tap a role to open it.</p><div class="chips" role="group" aria-labelledby="lensq" id="lensChips"></div><p class="pitch" id="pitch" aria-live="polite"></p></div>
+    <div class="jobs" id="jobs"></div>
+    <p class="sub">LEADERSHIP</p>
+    <div class="jobs" id="lead"></div>
+    <div class="skills" id="skills"></div>
+    <div class="edu card"><div><b>University of California, Berkeley</b><br><span style="color:var(--ink-soft)">B.A. Economics & Data Science</span></div><span class="tag">class of may 2028</span></div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-design" aria-labelledby="t-design">
+  <div class="tbar"><span class="fi"></span><h2 id="t-design">design_lab</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / design_lab</div>
+  <div class="wbody">
+    <div class="whead"><div><p class="eyebrow">PART OF ME · DESIGNER</p><h3>Design lab</h3></div><p>A concept building, then the visual system I design for KOSMOS every semester.</p></div>
+    <article class="case">
+      <button class="himg" id="arenaHero"><img src="assets/arena-main.jpg" alt="Watercolor and ink rendering of an oval arena with stained-glass triangular domes and people walking toward the entrance"></button>
+      <div>
+        <h4>Dynamic Badminton Arena</h4>
+        <p class="medium">PEN & INK, WATERCOLOR · 11×14 IN · 2024 · SOLO</p>
+        <p class="d">A sports hall built around two things I love: art and badminton. It started on a trip to Barcelona, inside Gaudí's Sagrada Família.</p>
+        <div class="steps">
+          <div class="step"><i>1</i><div><b>Inspiration</b><span>Light through colored glass at the Sagrada Família.</span></div></div>
+          <div class="step"><i>2</i><div><b>Explore</b><span>Sketched several roof forms and chose a semicircular ceiling for acoustics and looks.</span></div></div>
+          <div class="step"><i>3</i><div><b>Structure</b><span>A triangular hollow-steel frame keeps the hall open and adds stability.</span></div></div>
+          <div class="step"><i>4</i><div><b>Light</b><span>Translucent colored glass on both ends of the oval washes the court in color.</span></div></div>
+        </div>
+      </div>
+      <div class="strip" id="arenaStrip"></div>
+    </article>
+    <div class="tabs" role="tablist" aria-label="KOSMOS work">
+      <button class="chip" role="tab" id="tab-posters" aria-controls="kposters" aria-pressed="true" aria-selected="true">Event & fundraiser posters</button>
+      <button class="chip" role="tab" id="tab-profiles" aria-controls="kprofiles" aria-pressed="false" aria-selected="false">Member profile cards</button>
+    </div>
+    <p class="knote" id="knote"></p>
+    <div class="grid4 sq" id="kposters" role="tabpanel" aria-labelledby="tab-posters"></div>
+    <div class="grid4 tall" id="kprofiles" role="tabpanel" aria-labelledby="tab-profiles" hidden></div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-art" aria-labelledby="t-art">
+  <div class="tbar"><span class="fi"></span><h2 id="t-art">art_studio</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / art_studio</div>
+  <div class="wbody">
+    <div class="whead"><div><p class="eyebrow">PART OF ME · PAINTER</p><h3>Art studio</h3></div><p>Acrylic, watercolor, and pen & ink. Click any piece to see it larger.</p></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-hockey" aria-labelledby="t-hockey">
+  <div class="tbar"><span class="fi"></span><h2 id="t-hockey">rink_cam</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / rink_cam</div>
+  <div class="wbody">
+    <div class="whead"><div><p class="eyebrow">PART OF ME · VIDEOGRAPHER</p><h3>Cal Ice Hockey</h3></div><p>I film games and turn the footage into content for the team.</p></div>
+    <div class="rink">
+      <div>
+        <p>Fast skating, cold hands, and very little time to get the shot.</p>
+        <ul>
+          <li><b>SHOOT</b><span>Game-day footage from the boards and the bench</span></li>
+          <li><b>CUT</b><span>Edit highlights into short videos for social</span></li>
+          <li><b>SHIP</b><span>Post fast, so fans see it while the game still matters</span></li>
+        </ul>
+      </div>
+      <svg viewBox="0 0 420 200" role="img" aria-label="Top-down ice hockey rink with a camera moving around the boards" style="width:100%;height:auto">
+        <rect x="6" y="6" width="408" height="188" rx="78" fill="#F4F8FE" stroke="#2C2833" stroke-width="3"/>
+        <line x1="40" y1="14" x2="40" y2="186" stroke="#E77FA0" stroke-width="2"/><line x1="380" y1="14" x2="380" y2="186" stroke="#E77FA0" stroke-width="2"/>
+        <rect x="146" y="8" width="6" height="184" fill="#8FB2EA"/><rect x="268" y="8" width="6" height="184" fill="#8FB2EA"/><rect x="208" y="8" width="4" height="184" fill="#E77FA0"/>
+        <circle cx="210" cy="100" r="30" fill="none" stroke="#8FB2EA" stroke-width="2"/>
+        <g fill="none" stroke="#E77FA0" stroke-width="2"><circle cx="88" cy="58" r="22"/><circle cx="88" cy="142" r="22"/><circle cx="332" cy="58" r="22"/><circle cx="332" cy="142" r="22"/></g>
+        <use href="#clover" x="196" y="84" width="28" height="32"/>
+        <g><circle r="10" fill="#F6DC8A" stroke="#2C2833" stroke-width="2"/><path d="M-4-3h6v6h-6zM2-2l4-2v8l-4-2z" fill="#2C2833"/>
+          <animateMotion dur="9s" repeatCount="indefinite" path="M60 30C160-10 260-10 360 30C400 100 400 100 360 170C260 210 160 210 60 170C20 100 20 100 60 30Z"/></g>
+      </svg>
+    </div>
+    <div class="reels" id="reels"></div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-wip" aria-labelledby="t-wip">
+  <div class="tbar"><span class="fi"></span><h2 id="t-wip">in_progress</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / in_progress</div>
+  <div class="wbody">
+    <div class="whead"><div><p class="eyebrow">PART OF ME · BUILDER</p><h3>In progress</h3></div><p>Side projects and ideas I'm working on right now, from first sketch to shipped.</p></div>
+    <div class="board" id="board"></div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-game" aria-labelledby="t-game">
+  <div class="tbar"><span class="fi"></span><h2 id="t-game">clover_catch.exe</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close game">×</button></div></div>
+  <div class="wbody gamebody">
+    <div class="game">
+      <canvas id="gc" tabindex="0" aria-label="Clover Catch game area"></canvas>
+      <div class="ghud"><span>SCORE <b id="gs">0</b></span><span id="glives"></span><span>BEST <b id="gb">0</b></span></div>
+      <div class="gover" id="gover"><div class="gcard">
+        <h4 id="gtitle">Clover Catch</h4>
+        <p id="gmsg">Slide left and right to catch what falls from the sky.</p>
+        <ul class="glegend">
+          <li><svg viewBox="0 0 24 24"><use href="#clover" width="24" height="24"/></svg>+1</li>
+          <li><svg viewBox="0 0 24 24"><use href="#berry" width="24" height="24"/></svg>+3</li>
+          <li><svg viewBox="0 0 24 24"><use href="#puff" width="24" height="24"/></svg>+5</li>
+          <li><svg viewBox="0 0 24 24"><use href="#puck" width="24" height="24"/></svg>dodge</li>
+        </ul>
+        <p class="gkeys">mouse, touch, or ← → keys · 3 hearts</p>
+        <button class="btn green" id="gstart">Start</button>
+      </div></div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-chat" aria-labelledby="t-chat">
+  <div class="tbar"><span class="fi"></span><h2 id="t-chat">chat.app</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close chat">×</button></div></div>
+  <div class="wbody chatbody">
+    <div class="pals" id="pals" role="tablist" aria-label="Who to chat with"></div>
+    <div class="convo">
+      <div class="chead" id="chead"></div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <div class="chips2" id="chips2"></div>
+      <form class="composer" id="chatForm"><label class="sr" for="chatIn">Your message</label><input id="chatIn" autocomplete="off" maxlength="240" placeholder="Message Amy…"><button class="btn green" type="submit">Send</button></form>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-life" aria-labelledby="t-life">
+  <div class="tbar"><span class="fi"></span><h2 id="t-life">off_the_clock</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / off_the_clock</div>
+  <div class="wbody">
+    <div class="whead"><div><p class="eyebrow">PART OF ME · EVERYTHING ELSE</p><h3>Off the clock</h3></div><p>What I'm into when I'm not in Figma or a spreadsheet.</p></div>
+    <div class="life">
+      <div class="card photo"><img src="assets/amy-casual.jpg" alt="Amy at sunset on a pier by the bay, holding a yellow flower" style="object-position:50% 45%"></div>
+      <div class="card"><span class="k">UNDER WATER</span><h4>Scuba diving</h4><p>My favorite hobby. It also explains the girl-and-sea-turtle painting.</p></div>
+      <div class="card"><span class="k">ON STAGE</span><h4>K-pop dance</h4><p>Finance Chair at KOSMOS, Berkeley's K-pop dance club.</p></div>
+      <div class="card"><span class="k">ON REPEAT</span><h4>“First Burn”</h4><p>From <i>Hamilton</i>. My go-to song.</p></div>
+      <div class="card"><span class="k">ON COURT</span><h4>Badminton</h4><p>Enough to design a whole arena for it.</p></div>
+      <div class="card wide pets"><span class="k">MY PETS</span><h4>Gongzi & Yodi</h4>
+        <div class="petpics"><img src="assets/gongzi-1.jpg" alt="Gongzi, a golden cat with green eyes"><img src="assets/yodi-1.jpg" alt="Yodi, a black Labrador puppy resting its head on its paws"></div>
+        <p>Gongzi is my 5-year-old cat in China. Yodi is my 3-year-old black lab in New York.</p>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap"><button class="btn" data-chat="gongzi">Chat with Gongzi</button><button class="btn" data-chat="yodi">Chat with Yodi</button></div></div>
+      <div class="card wide"><span class="k">LANGUAGES</span><h4>English · 中文 · Español</h4><p>Fluent in English and Mandarin, intermediate Spanish.</p></div>
+    </div>
+    <div class="dice"><p id="fact" aria-live="polite">Click for a random fact about me.</p><button class="btn green" id="roll">Another one</button></div>
+  </div>
+</dialog>
+
+<dialog class="win" id="win-contact" aria-labelledby="t-contact">
+  <div class="tbar"><span class="fi"></span><h2 id="t-contact">say_hi</h2><div class="btns"><span aria-hidden="true">_</span><span aria-hidden="true">□</span><button class="x" aria-label="Close window">×</button></div></div>
+  <div class="addr"><span>📁</span>amy-os / me / say_hi</div>
+  <div class="wbody">
+    <div class="hi">
+      <img src="assets/ip-face.jpg" alt="">
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h3>Let's build something people like using.</h3>
+        <p style="color:var(--ink-soft);margin-top:var(--s3)">I'm looking for PM, UX/UI, product design and data analyst internships for Summer 2027.</p>
+        <div class="reach">
+          <span class="email" id="email">jiayu.chen@berkeley.edu</span>
+          <button class="btn green" id="copy">Copy email</button>
+          <a class="btn" href="https://www.linkedin.com/in/jiayu-chen-658782381/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <button class="btn" data-chat="amy">Ask me a question</button>
+          <span class="toast" id="toast" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="lb" aria-label="Image viewer">
+  <img id="lbimg" alt="">
+  <div class="bar"><span id="lbcap"></span><span style="display:flex;gap:.5rem"><button id="lbprev" aria-label="Previous image">←</button><button id="lbnext" aria-label="Next image">→</button><button id="lbclose">close</button></span></div>
+</dialog>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- content ---------- */
+// Set PHOTO to your professional photo, e.g. "assets/amy-headshot.jpg".
+const PHOTO="assets/amy-pro.jpg";
+const FOLDERS=[
+ {id:"work",   name:"Product Work", part:"Product & data strategist", file:"product_work", c:"#A8DD8A", d:"#5FAE45", peek:"assets/amy-pro.jpg"},
+ {id:"design", name:"Design Lab",   part:"Designer",           file:"design_lab",   c:"#F8BED0", d:"#D9668D", peek:"assets/kosmos-sessionb.jpg"},
+ {id:"art",    name:"Art Studio",   part:"Painter",            file:"art_studio",   c:"#CDBDF3", d:"#8C70D2", peek:"assets/art-underwater.jpg"},
+ {id:"hockey", name:"Rink Cam",     part:"Videographer, Cal Ice Hockey", file:"rink_cam", c:"#B4CEF4", d:"#5D86C8", peek:null},
+ {id:"wip",    name:"In Progress",  part:"Builder, always tinkering", file:"in_progress", c:"#F9D2B6", d:"#D98B5F", peek:null},
+ {id:"life",   name:"Off the Clock",part:"Dancer, diver, Hamilton fan", file:"off_the_clock", c:"#F8E08E", d:"#C99E25", peek:"assets/amy-casual.jpg"},
+ {id:"contact",name:"Say Hi",       part:"Let's talk",         file:"say_hi",       c:"#BDE9DF", d:"#45A28D", peek:null}
+];
+const LENSES={
+  pm:{label:"PM recruiter",line:"I find the real problem inside a messy workflow, then turn it into a roadmap people can act on."},
+  ux:{label:"UX/UI recruiter",line:"I sit in the first-time user's chair and count every place they get stuck."},
+  design:{label:"Design recruiter",line:"A painter who designs in Figma. I care how a thing looks and why it works."},
+  data:{label:"Data recruiter",line:"Econ & Data Science major. I turn messy numbers and specs into a clear recommendation someone can act on."},
+  all:{label:"Just curious",line:"Product strategist, painter, K-pop dancer, and the one filming at Cal Ice Hockey games."}
+};
+const TAGNAME={pm:"product",ux:"ux",design:"design",data:"data"};
+const JOBS=[
+ {co:"Anduril",badge:"0→1",role:"Lead Senior Consultant, Product Management Strategy",when:"Sep 2026 – Present",where:"Berkeley, CA",tags:["pm","ux","design"],
+  sum:"Defining what an AI-native program management stack should look like.",
+  b:["Lead a <b>0→1</b> initiative defining requirements for an AI-native program management stack through workflow analysis, pain-point discovery, vendor evaluation and gap analysis across existing enterprise tools.","Evaluate <b>4+ AI PM tools</b> (Linear, Motion, Notion AI and others) to recommend whether to buy, customize or build, turning workflow gaps into <b>product mockups</b> and an <b>actionable leadership roadmap</b>."]},
+ {co:"Optima Paperless Corp.",role:"Business Operations Intern",when:"May – Sep 2026",where:"New York, NY",tags:["pm","data"],
+  sum:"Go-to-market and fundraising support, working directly with the CEO.",
+  b:["Developed <b>10+</b> pitch and strategy materials supporting <b>2 VC fundraises</b>, government partnerships and <b>3+ enterprise sales</b> across U.S. and Asian markets.","Supported the CEO on <b>go-to-market strategy</b> across 2+ healthcare and nonprofit verticals, analyzing market opportunities, advisor networks and startup competitions."]},
+ {co:"Avoice",badge:"YC",role:"Project Manager, Product Strategy",when:"Jan – Jun 2026",where:"San Francisco, CA",tags:["pm","data"],
+  sum:"Led a team of 6 on research behind a global product architecture.",
+  b:["Led a team of <b>6</b> on <b>0→1 product research</b>, analyzing <b>5+</b> specification systems across the U.S., U.K. and EU and mapping <b>30+</b> cross-system relationships to find inconsistencies and edge cases.","Synthesized <b>100+ pages</b> of technical standards into one framework, flagging <b>10+ critical gaps</b> and recommending how to shape the product architecture and roadmap."]},
+ {co:"Google Cloud Platform",role:"Product Strategy Consultant",when:"Sep 2025 – Jan 2026",where:"Berkeley, CA",tags:["ux","pm","data"],
+  sum:"Audited the first-time user experience of the GCP Console.",
+  b:["Analyzed <b>15+</b> GCP Console user touchpoints and benchmarked <b>3</b> competing cloud platforms, identifying <b>5 friction points</b> in onboarding and PLG / AI adoption.","Developed <b>4 gamification strategies</b> that turn onboarding friction into product solutions: lower cognitive load, better feature discovery, stronger first-time engagement."]},
+ {co:"Korean Standard Group",role:"Product Strategy & Data Analyst",when:"Sep 2025 – Dec 2026",where:"Berkeley, CA",tags:["pm","data"],
+  sum:"Product research for Akij Group's expansion in Bangladesh.",
+  b:["Evaluated <b>10+ specifications</b> across competing geotextile production systems to define requirements for capacity, energy efficiency and system compatibility.","Turned technical and competitive analysis into product recommendations, shaping the client strategy that <b>helped secure investment in two new production lines</b>."]}
+];
+const LEAD=[
+ {co:"Business & Software at Berkeley",role:"VP of Internal Affairs (prev. VP of Projects)",when:"Sep 2025 – Present",where:"Berkeley, CA",tags:["pm"],
+  sum:"Run the project pipeline and the member experience.",
+  b:["Led <b>5 cross-functional project teams</b> of 5–6 members across client engagements including KSG and Google Cloud, owning scope, timelines, stakeholder communication and deliverables.","Sourced and evaluated <b>20+</b> prospective projects to build the semester pipeline.","Planned <b>13+</b> social and professional events, managing budgets, fundraising and logistics."]},
+ {co:"KOSMOS Dance",role:"Finance Chair · Designer",when:"Sep 2025 – Present",where:"Berkeley, CA",tags:["design","pm","data"],
+  sum:"Fundraising, social content, and the club's visual identity.",
+  b:["Led fundraising partnerships with local businesses, driving <b>$2,000+</b> in revenue.","Ran social media content (Reels), growing viewership by <b>58%</b>, and used performance metrics to refine content and campaigns.","Design the club's event posters, fundraiser graphics and member profile cards (see Design Lab)."]}
+];
+const SKILLS=[
+ {h:"PRODUCT",items:[["User Research","ux"],["Journey Mapping","ux"],["Roadmapping","pm"],["Competitive Analysis","pm"],["Feature Prioritization","pm"]]},
+ {h:"TOOLS",items:[["Figma","design ux"],["Adobe","design"],["Canva","design"],["Python","data"],["SQL","data"],["Excel","data pm"]]},
+ {h:"DATA",items:[["Market & competitive analysis","data pm"],["Metrics & performance tracking","data"],["Synthesizing technical specs","data pm"]]},
+ {h:"CRAFT",items:[["Painting & illustration","design"],["Video editing","design"],["Data analysis","data pm ux"],["Mandarin · Spanish","x"]]}
+];
+const ART=[["art-underwater.jpg","girl and sea turtle · acrylic"],["art-dancers.jpg","dancers at the barre · acrylic"],["art-window.jpg","arched window at sunset · acrylic"],["art-wolf.jpg","man and wolf in snow · acrylic"],["art-lighthouse.jpg","lighthouse through the trees · pen & ink"],["art-volleyball.jpg","volleyball team · acrylic"],["art-glasses.jpg","glassware study"],["art-swans.jpg","swans"]];
+const ARENA=[["arena-sketch1.jpg","roof structure sketch"],["arena-sketch2.jpg","dome form study"],["arena-sketch3.jpg","section sketch"],["arena-sketch4.jpg","glass panel studies"],["arena-sketch5.jpg","plan view"],["arena-model.jpg","folded paper model"],["arena-photo.jpg","physical model detail"]];
+const POSTERS=[["kosmos-twice.jpg","dance class: TWICE"],["kosmos-katseye.jpg","dance class: KATSEYE"],["kosmos-binge.jpg","Binge fundraiser"],["kosmos-8grams.jpg","8grams fundraiser"],["kosmos-mini.jpg","Session B mini project"],["kosmos-sessionb.jpg","Session B two-week project"],["kosmos-twoweek.jpg","two-week project"],["kosmos-bakesale.jpg","bake sale menu"]];
+const PROFILES=[1,2,3,4,5,6,7].map(i=>["profile-"+i+".jpg","KOSMOS member profile card"]).concat([["profile-amy.jpg","my own profile card"]]);
+// Ideas I'm developing. stage: "sketching" | "building" | "next"
+const IDEAS=[
+ {stage:"building",title:"jiayuamychen.com",note:"This site. A desktop you can click around, drawn in my own style and built with Claude Code.",tags:["design","code"]}
+];
+// Cal Ice Hockey videos: {title, note, url, thumb}. thumb is optional, e.g. "assets/hockey-1.jpg".
+const REELS=[];
+const FACTS=["I sketched a whole badminton arena after visiting the Sagrada Família.","My favorite song is “First Burn” from Hamilton.","Scuba diving is my favorite hobby.","I speak English, Mandarin, and some Spanish.","I design the posters for my dance club's classes and fundraisers.","I film Cal Ice Hockey games. Bring a jacket.","The girl on this computer is my own character. She's on my phone's lock screen too."];
+
+/* ---------- folder drawing ---------- */
+let clipN=0;
+function folderSVG(f){
+  const id="fc"+(clipN++);
+  const paper=f.peek
+    ?`<clipPath id="${id}"><rect x="16" y="8" width="68" height="44" rx="4"/></clipPath><rect x="16" y="8" width="68" height="44" rx="4" fill="#fff" stroke="#2C2833" stroke-width="2"/><image href="${f.peek}" x="16" y="8" width="68" height="44" preserveAspectRatio="xMidYMid slice" clip-path="url(#${id})"/>`
+    :`<rect x="18" y="10" width="64" height="42" rx="4" fill="#fff" stroke="#2C2833" stroke-width="2" transform="rotate(-4 50 30)"/><g stroke="#E4DCEB" stroke-width="3" stroke-linecap="round"><path d="M28 22h40M28 30h44M28 38h30"/></g>`;
+  return `<svg viewBox="0 0 100 82" aria-hidden="true">
+    <path d="M6 12h26l8 8h52a6 6 0 0 1 6 6v46a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V18a6 6 0 0 1 6-6z" fill="${f.d}" stroke="#2C2833" stroke-width="2.5"/>
+    ${paper}
+    <path d="M1 36a6 6 0 0 1 6-6h86a6 6 0 0 1 6 6l-3 36a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z" fill="${f.c}" stroke="#2C2833" stroke-width="2.5"/>
+    <g fill="#fff" fill-opacity=".55"><circle cx="16" cy="46" r="3"/><circle cx="32" cy="58" r="3"/><circle cx="16" cy="68" r="3"/><circle cx="48" cy="46" r="3"/><circle cx="48" cy="68" r="3"/><circle cx="64" cy="58" r="3"/><circle cx="80" cy="46" r="3"/><circle cx="32" cy="38" r="2.4"/><circle cx="64" cy="38" r="2.4"/></g>
+    <use href="#clover" x="68" y="48" width="22" height="25"/>
+  </svg>`;
+}
+
+/* dock + top nav + hub parts */
+const dock=$("#dock");
+FOLDERS.forEach(f=>{
+  const b=document.createElement("button");b.className="folder";b.dataset.id=f.id;b.setAttribute("aria-label","Open "+f.name);
+  b.innerHTML=folderSVG(f)+`<span>${f.name}</span>`;b.onclick=()=>openWin(f.id,b);dock.appendChild(b);
+  const a=document.createElement("a");a.href="#"+f.id;a.textContent=f.name.toLowerCase();$("#topnav").appendChild(a);
+});
+FOLDERS.forEach((f,i)=>{
+  const b=document.createElement("button");b.className="part";b.style.setProperty("--c",f.c);
+  b.innerHTML=folderSVG(f)+`<div><b>${f.part}</b><small>/${f.file}</small></div>`;b.onclick=()=>openWin(f.id,b);
+  (i<4?$("#partsL"):$("#partsR")).appendChild(b);
+});
+$("#photo").innerHTML=PHOTO?`<img src="${PHOTO}" alt="Portrait of Amy Chen">`:`<div class="empty"><img src="assets/ip-face.jpg" alt=""><br>professional photo<br>coming soon</div>`;
+
+/* clock */
+function tick(){const n=new Date();const h=n.getHours()%12||12,m=String(n.getMinutes()).padStart(2,"0");
+  $("#ctime").textContent=h+":"+m;$("#cdate").textContent=n.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).replace(",","");
+  $("#mclock").textContent=n.toLocaleDateString("en-US",{weekday:"short"})+" "+h+":"+m;}
+tick();setInterval(tick,15000);
+
+/* ---------- cursor, magnify, swipe ---------- */
+const screen=$("#screen"),cur=$("#cursor"),pm=$("#pmouse"),items=[...dock.children];
+const swipeMQ=matchMedia("(max-width:700px)");
+let cx=-100,cy=-100,real=false,lastReal=0,demoI=0,demoT=0,tx=0,ty=0;
+function place(x,y){cx=x;cy=y;cur.style.transform=`translate(${x-3}px,${y-2}px)`;
+  const r=screen.getBoundingClientRect();pm.style.transform=`translate(${(x/r.width-.5)*36}px,${(y/r.height-.5)*16}px)`;}
+let centers=[];
+function measure(){items.forEach(i=>i.style.setProperty("--s",1));const r=screen.getBoundingClientRect();centers=items.map(i=>{const b=i.getBoundingClientRect();return b.left+b.width/2-r.left});}
+function magnify(x,y){
+  if(swipeMQ.matches)return;
+  const r=screen.getBoundingClientRect(),near=y>r.height*.55;
+  items.forEach((it,k)=>{const d=Math.abs(x-centers[k]);const s=near?1+.75*Math.max(0,1-d/150):1;it.style.setProperty("--s",s.toFixed(3))});
+  const over=near&&items.some((it,k)=>Math.abs(x-centers[k])<40);cur.classList.toggle("point",over);
+}
+screen.addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;const r=screen.getBoundingClientRect();real=true;lastReal=performance.now();place(e.clientX-r.left,e.clientY-r.top);magnify(cx,cy);if(e.target.closest(".pet,.dicon,.titem,.tray button,.decorating .stk,.ip img"))cur.classList.add("point")});
+screen.addEventListener("pointerleave",()=>{real=false;lastReal=performance.now()});
+screen.addEventListener("pointerdown",()=>{cur.classList.add("click");setTimeout(()=>cur.classList.remove("click"),140)});
+// swipe mode: the folder nearest the center grows
+function swipeScale(){if(!swipeMQ.matches)return;const r=dock.getBoundingClientRect(),mid=r.left+r.width/2;let best=null,bd=1e9;
+  items.forEach(it=>{const b=it.getBoundingClientRect(),c=b.left+b.width/2,d=Math.abs(c-mid);it.style.setProperty("--s",(1+.55*Math.max(0,1-d/110)).toFixed(3));if(d<bd){bd=d;best=it}});
+  if(best){const s=screen.getBoundingClientRect(),b=best.getBoundingClientRect();place(b.left-s.left+b.width*.62,b.top-s.top+b.height*.55);cur.classList.add("point")}}
+dock.addEventListener("scroll",()=>requestAnimationFrame(swipeScale),{passive:true});
+function setupMode(){measure();if(swipeMQ.matches){const f=items[0];dock.scrollLeft=0;requestAnimationFrame(swipeScale)}else{place(screen.clientWidth*.5,screen.clientHeight*.45);magnify(cx,cy)}}
+addEventListener("resize",()=>{clearTimeout(window.__rz);window.__rz=setTimeout(setupMode,150)});
+// idle demo: the cursor wanders across the folders by itself
+function demo(t){
+  requestAnimationFrame(demo);
+  if(reduce||swipeMQ.matches||(real)||(performance.now()-lastReal<1800)||document.querySelector("dialog[open]"))return;
+  if(!demoT||t>demoT){demoI=(demoI+1)%items.length;demoT=t+1500;const r=screen.getBoundingClientRect(),b=items[demoI].getBoundingClientRect();tx=b.left-r.left+b.width*.55;ty=b.top-r.top+b.height*.5;}
+  place(cx+(tx-cx)*.06,cy+(ty-cy)*.06);magnify(cx,cy);
+}
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(setupMode);setupMode();
+requestAnimationFrame(demo);
+if(reduce){const r=screen.getBoundingClientRect(),b=items[1].getBoundingClientRect();place(b.left-r.left+b.width*.55,b.top-r.top+b.height*.5);magnify(cx,cy)}
+
+/* ---------- windows ---------- */
+const FI=Object.fromEntries(FOLDERS.map(f=>[f.id,f]));
+const APPS={game:{id:"game",name:"Clover Catch",file:"clover_catch",c:"#F6CCD8",d:"#DE7895",peek:null},chat:{id:"chat",name:"Chat",file:"chat",c:"#DDF0CF",d:"#6E9653",peek:null}};
+$$("dialog.win").forEach(w=>{
+  const id=w.id.slice(4),f=FI[id]||APPS[id];w.style.setProperty("--c",f.c);w.querySelector(".fi").innerHTML=folderSVG(f);
+  w.querySelector(".x").onclick=()=>w.close();
+  w.addEventListener("click",e=>{if(e.target===w)w.close()});
+  w.addEventListener("close",()=>{w.style.translate="";if(location.hash==="#"+id)history.replaceState(null,"",location.pathname+location.search)});
+  // drag by the title bar
+  const bar=w.querySelector(".tbar");let sx,sy,ox=0,oy=0,drag=false;
+  bar.addEventListener("pointerdown",e=>{if(e.target.closest("button")||swipeMQ.matches)return;drag=true;sx=e.clientX;sy=e.clientY;const t=(w.style.translate||"0px 0px").split(" ");ox=parseFloat(t[0])||0;oy=parseFloat(t[1])||0;bar.setPointerCapture(e.pointerId)});
+  bar.addEventListener("pointermove",e=>{if(!drag)return;w.style.translate=`${ox+e.clientX-sx}px ${oy+e.clientY-sy}px`});
+  bar.addEventListener("pointerup",()=>drag=false);
+});
+function openWin(id,from){
+  const w=$("#win-"+id);if(!w||w.open)return;
+  $$("dialog.win[open]").forEach(o=>o.close());
+  w.showModal();w.querySelector(".wbody").scrollTop=0;
+  if(location.hash!=="#"+id)history.replaceState(null,"","#"+id);
+  if(from&&!reduce&&w.animate){const a=from.getBoundingClientRect(),b=w.getBoundingClientRect();
+    const dx=(a.left+a.width/2)-(b.left+b.width/2),dy=(a.top+a.height/2)-(b.top+b.height/2),s=Math.max(.08,a.width/b.width);
+    w.animate([{transform:`translate(${dx}px,${dy}px) scale(${s})`,opacity:.3,borderRadius:"40px"},{transform:"none",opacity:1}],{duration:440,easing:"cubic-bezier(.2,.85,.25,1)"});}
+}
+function fromHash(){const id=location.hash.slice(1);if(FI[id])openWin(id,dock.querySelector(`[data-id="${id}"]`));else if(APPS[id])openWin(id,id==="game"?$("#openGame"):$(".ip"));}
+addEventListener("hashchange",fromHash);
+$$("#topnav a").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const id=a.getAttribute("href").slice(1);openWin(id,dock.querySelector(`[data-id="${id}"]`))}));
+fromHash();
+
+/* ---------- work window ---------- */
+let lens="all";try{lens=localStorage.getItem("lens")||"all"}catch(e){}
+if(!LENSES[lens])lens="all";
+Object.entries(LENSES).forEach(([k,v])=>{const b=document.createElement("button");b.className="chip";b.textContent=v.label;b.dataset.k=k;b.onclick=()=>setLens(k);$("#lensChips").appendChild(b)});
+function jobHTML(j,i,p){const id=p+i;return `<article class="job" data-tags="${j.tags.join(" ")}" data-open="false">
+  <button aria-expanded="false" aria-controls="${id}"><div style="min-width:0"><h4>${j.co}${j.badge?`<span class="badge">${j.badge}</span>`:""}</h4>
+  <p class="role">${j.role}</p><p class="sum">${j.sum}</p><div class="tags">${j.tags.map(t=>`<span class="tag" data-t="${t}">${TAGNAME[t]}</span>`).join("")}</div></div>
+  <div class="meta">${j.when}<br>${j.where}</div><span class="plus" aria-hidden="true">+</span></button>
+  <div class="more" id="${id}"><div><ul>${j.b.map(x=>`<li>${x}</li>`).join("")}</ul></div></div></article>`}
+$("#jobs").innerHTML=JOBS.map((j,i)=>jobHTML(j,i,"j")).join("");
+$("#lead").innerHTML=LEAD.map((j,i)=>jobHTML(j,i,"l")).join("");
+$$(".job>button").forEach(b=>b.addEventListener("click",()=>{const a=b.parentElement,o=a.dataset.open!=="true";a.dataset.open=o;b.setAttribute("aria-expanded",o)}));
+const first=$("#jobs .job");first.dataset.open="true";first.querySelector("button").setAttribute("aria-expanded","true");
+$("#skills").innerHTML=SKILLS.map(g=>`<div><h5>${g.h}</h5><div class="row">${g.items.map(([n,t])=>`<span class="sk" data-t="${t}">${n}</span>`).join("")}</div></div>`).join("");
+function setLens(k){lens=k;try{localStorage.setItem("lens",k)}catch(e){}
+  $$("#lensChips .chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.k===k));$("#pitch").textContent=LENSES[k].line;
+  ["#jobs","#lead"].forEach(sel=>{const box=$(sel),arts=[...box.children];
+    arts.forEach(a=>{const has=k==="all"||a.dataset.tags.split(" ").includes(k);a.classList.toggle("dim",!has);a.classList.toggle("hit",k!=="all"&&has)});
+    if(k!=="all")arts.sort((a,b)=>b.classList.contains("hit")-a.classList.contains("hit")).forEach(a=>box.appendChild(a));});
+  $$(".tag[data-t]").forEach(t=>t.classList.toggle("on",t.dataset.t===k));
+  $$(".sk").forEach(s=>s.classList.toggle("on",k!=="all"&&s.dataset.t.split(" ").includes(k)));}
+setLens(lens);
+
+/* ---------- galleries + lightbox ---------- */
+let set=[],idx=0;const lb=$("#lb");
+function openLB(list,i){set=list;idx=i;showLB();if(!lb.open)lb.showModal()}
+function showLB(){const[s,c]=set[idx];$("#lbimg").src=s;$("#lbimg").alt=c;$("#lbcap").textContent=c+"  ·  "+(idx+1)+" / "+set.length}
+$("#lbclose").onclick=()=>lb.close();$("#lbprev").onclick=()=>{idx=(idx-1+set.length)%set.length;showLB()};$("#lbnext").onclick=()=>{idx=(idx+1)%set.length;showLB()};
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+lb.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")$("#lbprev").click();if(e.key==="ArrowRight")$("#lbnext").click()});
+function fill(el,list,tpl){const L=list.map(([f,c])=>["assets/"+f,c]);el.innerHTML=L.map(tpl).join("");[...el.querySelectorAll("button")].forEach((b,i)=>b.onclick=()=>openLB(L,i))}
+fill($("#gallery"),ART,([s,c])=>`<button><img src="${s}" alt="${c}" loading="lazy"><div class="cap">${c}</div></button>`);
+fill($("#arenaStrip"),ARENA,([s,c])=>`<button><figure style="margin:0"><img src="${s}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure></button>`);
+fill($("#kposters"),POSTERS,([s,c])=>`<button><img src="${s}" alt="${c}" loading="lazy"></button>`);
+fill($("#kprofiles"),PROFILES,([s,c])=>`<button><img src="${s}" alt="${c}" loading="lazy"></button>`);
+$("#arenaHero").onclick=()=>openLB([["assets/arena-main.jpg","Dynamic Badminton Arena · final"]].concat(ARENA.map(([f,c])=>["assets/"+f,c])),0);
+const NOTES={posters:"Each semester KOSMOS needs class announcements, project calls and fundraiser promos. I built a playful Y2K look (pixel windows, warning pop-ups, sticker type) so every post reads as ours in a crowded feed.",
+  profiles:"Magazine-cover intro cards for each officer, built from one shared template: big name type, role sticker, year, major, favorite song and hobby."};
+function tab(w){["posters","profiles"].forEach(x=>{const on=x===w;$("#tab-"+x).setAttribute("aria-pressed",on);$("#tab-"+x).setAttribute("aria-selected",on);$("#k"+x).hidden=!on});$("#knote").textContent=NOTES[w]}
+$("#tab-posters").onclick=()=>tab("posters");$("#tab-profiles").onclick=()=>tab("profiles");tab("posters");
+
+/* in-progress board */
+const STAGES=[["sketching","SKETCHING"],["building","BUILDING"],["next","UP NEXT"]];
+$("#board").innerHTML=STAGES.map(([k,label])=>{const list=IDEAS.filter(i=>i.stage===k);
+  const cards=list.map(i=>`<article class="idea"><h4>${i.title}</h4><p>${i.note}</p><div class="tags">${i.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div></article>`).join("")
+   ||`<div class="idea empty"><svg width="26" height="26" aria-hidden="true"><use href="#button"/></svg><p>new idea<br>coming soon</p></div>`;
+  return `<section class="bcol" aria-label="${label}"><p class="bh">${label} <span>${list.length}</span></p>${cards}</section>`}).join("");
+
+/* reels */
+$("#reels").innerHTML=REELS.length?REELS.map(r=>`<a class="reel" href="${r.url}" target="_blank" rel="noopener" ${r.thumb?`style="background:url('${r.thumb}') center/cover"`:""}><span class="play"></span><b>${r.title}</b><small>${r.note||""}</small></a>`).join("")
+  :[1,2,3].map(i=>`<div class="reel empty"><span class="play"></span><b>reel ${i}</b><small>coming soon</small></div>`).join("");
+
+/* facts + copy */
+let last=-1;$("#roll").onclick=()=>{let n;do{n=Math.floor(Math.random()*FACTS.length)}while(n===last);last=n;$("#fact").textContent=FACTS[n]};
+$("#copy").onclick=()=>{const t=$("#email").textContent;const sel=()=>{const r=document.createRange();r.selectNodeContents($("#email"));const s=getSelection();s.removeAllRanges();s.addRange(r);$("#toast").textContent="selected. press ⌘C"};
+  try{navigator.clipboard.writeText(t).then(()=>{$("#toast").textContent="copied!"},sel)}catch(e){sel()}};
+
+/* =========================================================
+   DESKTOP PETS — an orange cat who naps and a black lab pup who follows the cursor
+   ========================================================= */
+const CAT_SVG=`<svg viewBox="0 0 100 72" aria-hidden="true">
+ <g class="tail"><path d="M22 44C8 42 4 26 12 16" fill="none" stroke="#2C2833" stroke-width="10" stroke-linecap="round"/><path d="M22 44C8 42 4 26 12 16" fill="none" stroke="#F2BD7E" stroke-width="5.5" stroke-linecap="round"/></g>
+ <g class="leg b"><rect x="31" y="50" width="8" height="15" rx="4" fill="#E2A563" stroke="#2C2833" stroke-width="2"/></g>
+ <g class="leg a"><rect x="63" y="50" width="8" height="15" rx="4" fill="#E2A563" stroke="#2C2833" stroke-width="2"/></g>
+ <ellipse cx="46" cy="45" rx="28" ry="14" fill="#F2BD7E" stroke="#2C2833" stroke-width="2.5"/>
+ <path d="M36 32q3 5 0 9M44 31q3 5 0 9M52 32q3 5 0 9" stroke="#D99A55" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+ <ellipse cx="50" cy="52" rx="15" ry="4.5" fill="#FFF6EA"/>
+ <g class="leg a"><rect x="24" y="50" width="8.5" height="16" rx="4" fill="#F2BD7E" stroke="#2C2833" stroke-width="2"/></g>
+ <g class="leg b"><rect x="56" y="50" width="8.5" height="16" rx="4" fill="#F2BD7E" stroke="#2C2833" stroke-width="2"/></g>
+ <path d="M64 22 66 6 75 16Z M80 16 89 6 90 23Z" fill="#F2BD7E" stroke="#2C2833" stroke-width="2.2" stroke-linejoin="round"/>
+ <path d="M66.5 18 67.5 10 72 15Z M82 16 87.5 10 88 19Z" fill="#F6B5C5"/>
+ <circle cx="77" cy="29" r="15" fill="#F2BD7E" stroke="#2C2833" stroke-width="2.5"/>
+ <path d="M74 16v5M78 15v5" stroke="#D99A55" stroke-width="2" stroke-linecap="round"/>
+ <ellipse cx="82" cy="34" rx="7" ry="5" fill="#FFF6EA"/>
+ <g class="eye"><ellipse cx="73.5" cy="28" rx="3" ry="3.4" fill="#A8D27A" stroke="#2C2833" stroke-width="1.2"/><ellipse cx="73.8" cy="28.3" rx="1.1" ry="2.4" fill="#2C2833"/></g><g class="eye"><ellipse cx="86" cy="28" rx="3" ry="3.4" fill="#A8D27A" stroke="#2C2833" stroke-width="1.2"/><ellipse cx="86.3" cy="28.3" rx="1.1" ry="2.4" fill="#2C2833"/></g>
+ <path d="M80.5 32.5h3l-1.5 2z" fill="#E77FA0"/>
+ <path d="M82 34.5q-1.5 2.5-3.5 1M82 34.5q1.5 2.5 3.5 1" stroke="#2C2833" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+ <circle cx="70" cy="34" r="2.6" fill="#F59AB0" opacity=".6"/><circle cx="90" cy="34" r="2.2" fill="#F59AB0" opacity=".6"/>
+ <path d="M90 33l8-2M90 36l8 1" stroke="#2C2833" stroke-width="1" stroke-linecap="round"/>
+</svg>`;
+const DOG_SVG=`<svg viewBox="0 0 100 72" aria-hidden="true">
+ <g class="tail"><path d="M21 42C12 38 9 30 12 22" fill="none" stroke="#2C2833" stroke-width="9" stroke-linecap="round"/><path d="M21 42C12 38 9 30 12 22" fill="none" stroke="#3D3843" stroke-width="4.5" stroke-linecap="round"/></g>
+ <g class="leg b"><rect x="31" y="50" width="8.5" height="15" rx="4" fill="#26222B" stroke="#2C2833" stroke-width="2"/></g>
+ <g class="leg a"><rect x="62" y="50" width="8.5" height="15" rx="4" fill="#26222B" stroke="#2C2833" stroke-width="2"/></g>
+ <ellipse cx="46" cy="44" rx="27" ry="15" fill="#3A3541" stroke="#2C2833" stroke-width="2.5"/>
+ <path d="M30 36q14-7 30 0" stroke="#5E5668" stroke-width="3" fill="none" stroke-linecap="round"/>
+ <g class="leg a"><rect x="24" y="50" width="9" height="16" rx="4" fill="#3A3541" stroke="#2C2833" stroke-width="2"/></g>
+ <g class="leg b"><rect x="55" y="50" width="9" height="16" rx="4" fill="#3A3541" stroke="#2C2833" stroke-width="2"/></g>
+ <circle cx="74" cy="28" r="14.5" fill="#3A3541" stroke="#2C2833" stroke-width="2.5"/>
+ <path d="M62 37q5 8 3 17" stroke="#8ED46A" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <circle cx="65.5" cy="52" r="3.2" fill="#F6DC8A" stroke="#2C2833" stroke-width="1.3"/>
+ <ellipse cx="86" cy="33" rx="9" ry="6.5" fill="#4A4451" stroke="#2C2833" stroke-width="2"/>
+ <path d="M88 38q0 5 3 5t2-5" fill="#F48FA8" stroke="#2C2833" stroke-width="1.2"/>
+ <ellipse cx="93" cy="30.5" rx="3" ry="2.4" fill="#16131A"/><circle cx="92.2" cy="29.8" r=".8" fill="#fff" opacity=".7"/>
+ <ellipse cx="68" cy="29" rx="5.5" ry="10" fill="#24212A" stroke="#2C2833" stroke-width="2" transform="rotate(15 68 29)"/>
+ <g class="eye"><circle cx="78" cy="24" r="3.4" fill="#fff"/><circle cx="78.4" cy="24.3" r="2.4" fill="#16131A"/><circle cx="79.2" cy="23.4" r=".8" fill="#fff"/></g>
+ <circle cx="81" cy="31" r="2.4" fill="#F59AB0" opacity=".55"/>
+</svg>`;
+const SAYS={cat:["meow! I'm Gongzi","mrrp?","purr…","*stretches*"],dog:["woof! I'm Yodi!","arf arf!","*wags*","ball??"]};
+const PETS=[];
+function makePet(kind){
+  const el=document.createElement("div");el.className="pet "+kind+" sit";el.setAttribute("aria-hidden","true");
+  el.innerHTML=`<div class="bod"><span class="say"></span><span class="zz">z z</span>${kind==="cat"?CAT_SVG:DOG_SVG}</div>`;
+  screen.insertBefore(el,dock);
+  const p={el,kind,x:0,dir:kind==="cat"?-1:1,state:"sit",until:performance.now()+600+Math.random()*1800,target:0,speed:kind==="cat"?34:60,talkUntil:0,happyUntil:0,floor:dock.offsetTop-60};
+  el.addEventListener("pointerdown",e=>{e.stopPropagation();petIt(p)});
+  PETS.push(p);return p;
+}
+function hearts(x,y){for(let i=0;i<3;i++){const h=document.createElementNS("http://www.w3.org/2000/svg","svg");h.setAttribute("class","heart");h.setAttribute("viewBox","0 0 24 24");
+  h.innerHTML='<use href="#heart" width="24" height="24"/>';h.style.left=(x+(i-1)*14)+"px";h.style.top=(y-6-i*4)+"px";h.style.animationDelay=(i*.12)+"s";screen.appendChild(h);setTimeout(()=>h.remove(),1400)}}
+function petIt(p){const now=performance.now(),m=SAYS[p.kind];
+  p.el.querySelector(".say").textContent=m[Math.floor(Math.random()*m.length)];
+  p.talkUntil=now+1600;p.happyUntil=now+1400;p.state="sit";p.until=now+2000;
+  hearts(p.x+p.el.offsetWidth/2,p.floor);setTimeout(()=>openChat(p.kind==="cat"?"gongzi":"yodi",p.el),650);}
+const cat=makePet("cat"),pup=makePet("dog");
+function spread(){const W=screen.clientWidth;cat.x=W*.62;pup.x=W*.3;}
+spread();
+let plt=performance.now();
+function petLoop(t){
+  requestAnimationFrame(petLoop);
+  const dt=Math.min(.05,(t-plt)/1000);plt=t;
+  const W=screen.clientWidth;
+  PETS.forEach(p=>{
+    const pw=p.el.offsetWidth,ph=p.el.offsetHeight,max=Math.max(8,W-pw-8);
+    p.floor=dock.offsetTop-ph+(swipeMQ.matches?14:12);
+    if(!reduce){
+      // the pup trots over to wherever your mouse is
+      if(p.kind==="dog"&&real&&t-lastReal<4000&&p.state!=="sleep"){
+        const tg=Math.min(max,Math.max(8,cx-pw/2));
+        if(Math.abs(tg-p.x)>16){p.state="walk";p.target=tg}
+        else if(p.state==="walk"){p.state="sit";p.happyUntil=t+1200;p.until=t+2500}
+      }
+      if(p.state==="walk"){const d=p.target-p.x;
+        if(Math.abs(d)<2){p.state="sit";p.until=t+1500+Math.random()*3000}
+        else{p.dir=Math.sign(d);p.x+=p.dir*Math.min(Math.abs(d),p.speed*dt)}}
+      else if(p.state==="sit"&&t>p.until){
+        if(Math.random()<(p.kind==="cat"?.45:.15)){p.state="sleep";p.until=t+6000+Math.random()*7000}
+        else{p.state="walk";p.target=8+Math.random()*(max-8)}}
+      else if(p.state==="sleep"&&t>p.until){p.state="sit";p.until=t+1200}
+    }
+    p.x=Math.min(max,Math.max(8,p.x));
+    const cls="pet "+p.kind+" "+p.state+(t<p.happyUntil?" happy":"")+(t<p.talkUntil?" talk":"");
+    if(p.el.className!==cls)p.el.className=cls;
+    p.el.style.transform=`translate(${p.x.toFixed(1)}px,${p.floor}px)`;
+    p.el.style.setProperty("--dir",p.dir);
+  });
+}
+requestAnimationFrame(petLoop);
+
+/* =========================================================
+   CLOVER CATCH
+   ========================================================= */
+const LEAF="M0 0C-10-6-12-16-5-17C-2-17.5 0-15 0-13C0-15 2-17.5 5-17C12-16 10-6 0 0Z";
+const GSVG={
+ clover:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 40 40"><g stroke="#2C2833" stroke-width="2" fill="#8ED46A">${[0,90,180,270].map(a=>`<path transform="rotate(${a})" d="${LEAF}"/>`).join("")}</g><circle r="2.5" fill="#4FA53B"/></svg>`,
+ berry:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -13 24 26"><path d="M0 11C-7 7-10 1-9-4C-8-8-4-9 0-8C4-9 8-8 9-4C10 1 7 7 0 11Z" fill="#F07C93" stroke="#2C2833" stroke-width="1.5"/><g fill="#FFF3B0"><circle cx="-4" cy="-2" r=".9"/><circle cx="3" cy="-3" r=".9"/><circle cx="0" cy="2" r=".9"/><circle cx="-3" cy="5" r=".9"/><circle cx="4" cy="3" r=".9"/></g><path d="M-6-8C-3-11 0-9 0-12C0-9 3-11 6-8C3-7 0-8 0-7C0-8-3-7-6-8Z" fill="#8ED46A" stroke="#2C2833" stroke-width="1.2"/></svg>`,
+ star:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-11 -11 22 22"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9D3DE"/><stop offset=".5" stop-color="#F2A9BF"/><stop offset="1" stop-color="#8FBF6E"/></linearGradient></defs><path d="M0-10C.9-3 3-1 10 0 3 1 .9 3 0 10-.9 3-3 1-10 0-3-1-.9-3 0-10Z" fill="url(#g)" stroke="#2C2833" stroke-width=".8"/></svg>`,
+ puck:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -9 24 18"><ellipse cy="2.5" rx="11" ry="5" fill="#2C2833"/><ellipse cy="-1" rx="11" ry="5" fill="#4A4451" stroke="#2C2833" stroke-width="1.5"/><path d="M-6-2h12" stroke="#E77FA0" stroke-width="1.2"/></svg>`
+};
+const GI={};Object.entries(GSVG).forEach(([k,v])=>{const im=new Image();im.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(v);GI[k]=im});
+const FACE=new Image();FACE.src="assets/ip-face.jpg";
+const KIND={clover:{v:1,r:17,c:"#4FA53B"},berry:{v:3,r:15,c:"#DE5A7A"},star:{v:5,r:17,c:"#C9709A"},puck:{v:0,r:16}};
+const gc=$("#gc"),gx=gc.getContext("2d"),gwin=$("#win-game");
+let GW=0,GH=0,G={state:"ready",score:0,lives:3,items:[],floats:[],t:0,spawn:0,px:0,tx:0,shake:0,keys:{}},glt=0,best=0;
+try{best=+localStorage.getItem("cloverBest")||0}catch(e){}
+$("#gb").textContent=best;
+function gsize(){const w=gc.clientWidth,h=gc.clientHeight;if(!w)return;const d=Math.min(2,devicePixelRatio||1);GW=w;GH=h;gc.width=Math.round(GW*d);gc.height=Math.round(GH*d);gx.setTransform(d,0,0,d,0,0);if(!G.px){G.px=G.tx=GW/2}gdraw()}
+if(window.ResizeObserver)new ResizeObserver(gsize).observe(gc);
+const PR=()=>Math.max(24,Math.min(36,GW*.055));
+function lives(){$("#glives").innerHTML=[0,1,2].map(i=>`<svg viewBox="0 0 24 24" style="opacity:${i<G.lives?1:.2}"><use href="#heart" width="24" height="24"/></svg>`).join("")}
+lives();
+function overlay(title,msg,btn){$("#gtitle").textContent=title;$("#gmsg").textContent=msg;$("#gstart").textContent=btn;$("#gover").hidden=false}
+function gstart(){
+  if(G.state!=="paused"){Object.assign(G,{score:0,lives:3,items:[],floats:[],t:0,spawn:.5,px:GW/2,tx:GW/2,shake:0});$("#gs").textContent=0;lives()}
+  G.state="play";$("#gover").hidden=true;glt=performance.now();gc.focus({preventScroll:true});requestAnimationFrame(gloop);
+}
+$("#gstart").onclick=gstart;
+function gspawn(){
+  const pp=Math.min(.32,.14+G.t*.004),r=Math.random();
+  const k=r<pp?"puck":r<pp+.07?"star":r<pp+.27?"berry":"clover";
+  const s=Math.max(.85,Math.min(1.25,GW/620));
+  G.items.push({k,x:24+Math.random()*(GW-48),y:-24,vy:(110+G.t*4+Math.random()*70)*s,rot:Math.random()*6,vr:(Math.random()-.5)*3,r:KIND[k].r*s});
+}
+function gloop(t){
+  if(G.state!=="play")return;
+  const dt=Math.min(.05,(t-glt)/1000);glt=t;G.t+=dt;
+  G.spawn-=dt;if(G.spawn<=0){gspawn();G.spawn=Math.max(.3,.85-G.t*.012)}
+  if(G.keys.l)G.tx-=480*dt;if(G.keys.r)G.tx+=480*dt;
+  const pr=PR();G.tx=Math.max(pr,Math.min(GW-pr,G.tx));G.px+=(G.tx-G.px)*Math.min(1,dt*14);
+  const py=GH-pr-18;
+  for(let i=G.items.length-1;i>=0;i--){const it=G.items[i];it.y+=it.vy*dt;it.rot+=it.vr*dt;
+    if(Math.hypot(it.x-G.px,it.y-py)<it.r+pr*.85){G.items.splice(i,1);
+      if(it.k==="puck"){G.lives--;G.shake=.35;lives();G.floats.push({x:it.x,y:py-pr,t:0,txt:"ouch!",c:"#2C2833"});
+        if(G.lives<=0){gover();return}}
+      else{G.score+=KIND[it.k].v;$("#gs").textContent=G.score;G.floats.push({x:it.x,y:py-pr,t:0,txt:"+"+KIND[it.k].v,c:KIND[it.k].c})}}
+    else if(it.y>GH+30)G.items.splice(i,1)}
+  G.floats.forEach(f=>{f.t+=dt;f.y-=40*dt});G.floats=G.floats.filter(f=>f.t<.9);
+  G.shake=Math.max(0,G.shake-dt);
+  gdraw();requestAnimationFrame(gloop);
+}
+function gover(){G.state="over";
+  const nb=G.score>best;if(nb){best=G.score;try{localStorage.setItem("cloverBest",best)}catch(e){}}$("#gb").textContent=best;gdraw();
+  overlay(nb?"New best!":"Game over",`You caught ${G.score} point${G.score===1?"":"s"} of luck.`+(nb?"":` Best: ${best}.`),"Play again")}
+function gdraw(){
+  if(!GW)return;gx.clearRect(0,0,GW,GH);gx.save();
+  if(G.shake>0)gx.translate((Math.random()-.5)*10*G.shake,(Math.random()-.5)*10*G.shake);
+  G.items.forEach(it=>{gx.save();gx.translate(it.x,it.y);gx.rotate(it.k==="puck"?0:it.rot);const w=it.r*2,h=it.k==="puck"?w*.75:w;gx.drawImage(GI[it.k],-w/2,-h/2,w,h);gx.restore()});
+  const pr=PR(),px=G.px||GW/2,py=GH-pr-18;
+  gx.fillStyle="rgba(44,40,51,.12)";gx.beginPath();gx.ellipse(px,py+pr+6,pr*.9,5,0,0,7);gx.fill();
+  gx.save();gx.beginPath();gx.arc(px,py,pr,0,Math.PI*2);gx.fillStyle="#fff";gx.fill();gx.beginPath();gx.arc(px,py,pr-3,0,Math.PI*2);gx.clip();
+  if(FACE.complete&&FACE.naturalWidth)gx.drawImage(FACE,75,20,470,470,px-pr+3,py-pr+3,(pr-3)*2,(pr-3)*2);gx.restore();
+  gx.lineWidth=2.5;gx.strokeStyle="#2C2833";gx.beginPath();gx.arc(px,py,pr,0,Math.PI*2);gx.stroke();
+  gx.textAlign="center";gx.font="700 20px Fredoka, ui-rounded, sans-serif";
+  G.floats.forEach(f=>{gx.globalAlpha=1-f.t/.9;gx.fillStyle=f.c;gx.fillText(f.txt,f.x,f.y)});gx.globalAlpha=1;
+  gx.restore();
+}
+FACE.onload=gdraw;
+gc.addEventListener("pointermove",e=>{G.tx=e.offsetX*GW/(gc.getBoundingClientRect().width||GW)});
+gc.addEventListener("pointerdown",e=>{G.tx=e.offsetX});
+gwin.addEventListener("keydown",e=>{
+  if(e.key==="ArrowLeft"||e.key==="a"){G.keys.l=true;e.preventDefault()}
+  if(e.key==="ArrowRight"||e.key==="d"){G.keys.r=true;e.preventDefault()}
+  if((e.key===" "||e.key==="Enter")&&G.state!=="play"&&!$("#gover").hidden&&document.activeElement!==$("#gstart")){e.preventDefault();gstart()}
+});
+gwin.addEventListener("keyup",e=>{if(e.key==="ArrowLeft"||e.key==="a")G.keys.l=false;if(e.key==="ArrowRight"||e.key==="d")G.keys.r=false});
+gwin.addEventListener("close",()=>{G.keys={};if(G.state==="play"){G.state="paused";overlay("Paused",`Score so far: ${G.score}.`,"Resume")}});
+function gopen(){requestAnimationFrame(()=>{gsize();$("#gstart").focus({preventScroll:true})})}
+const baseOpen=openWin;
+openWin=function(id,from){baseOpen(id,from);if(id==="game")gopen()};
+$("#openGame").onclick=e=>{e.stopPropagation();openWin("game",e.currentTarget)};
+if(gwin.open)gopen();
+
+/* =========================================================
+   STICKER DESK — drag stickers onto the desktop; saved in this browser
+   ========================================================= */
+const STK={
+ clover:'<svg viewBox="0 0 24 24"><use href="#clover" width="24" height="24"/></svg>',
+ puff:'<svg viewBox="0 0 24 24"><use href="#puff" width="24" height="24"/></svg>',
+ heart:'<svg viewBox="0 0 24 24"><use href="#heart" width="24" height="24"/></svg>',
+ berry:'<svg viewBox="0 0 24 24"><use href="#berry" width="24" height="24"/></svg>',
+ button:'<svg viewBox="0 0 24 24"><use href="#button" width="24" height="24"/></svg>',
+ bow:'<svg viewBox="0 0 24 24"><use href="#bow" width="24" height="24"/></svg>',
+ star:'<svg viewBox="0 0 24 24"><use href="#star" width="24" height="24" style="fill:#F6CCD8;stroke:#2C2833;stroke-width:1.4"/></svg>',
+ sparkle:'<svg viewBox="0 0 24 24"><use href="#sparkle" width="24" height="24" style="fill:#F6DC8A;stroke:#2C2833;stroke-width:.8"/></svg>',
+ paw:'<svg viewBox="0 0 24 24"><use href="#paw" width="24" height="24"/></svg>',
+ face:'<img class="face" src="assets/ip-face.jpg" alt="">',
+ amy:'<span class="sig">Amy</span>'
+};
+const layer=$("#stickers"),tray=$("#tray");
+let stickers=[];try{stickers=JSON.parse(localStorage.getItem("amyStickers")||"[]").filter(s=>STK[s.k])}catch(e){stickers=[]}
+function saveStk(){try{localStorage.setItem("amyStickers",JSON.stringify(stickers.slice(-60)))}catch(e){}}
+function stkEl(s){const d=document.createElement("div");d.className="stk"+(s.k==="amy"?" amy":"");d.innerHTML=STK[s.k];pos(d,s);
+  d.addEventListener("pointerdown",e=>{if(!screen.classList.contains("decorating"))return;e.stopPropagation();e.preventDefault();drag(d,s,e)});
+  d.addEventListener("dblclick",()=>{if(!screen.classList.contains("decorating"))return;stickers.splice(stickers.indexOf(s),1);d.remove();saveStk()});
+  return d}
+function pos(d,s){d.style.left=s.x+"%";d.style.top=s.y+"%";d.style.setProperty("--r",s.r+"deg")}
+function renderStk(){layer.innerHTML="";stickers.forEach(s=>layer.appendChild(stkEl(s)))}
+renderStk();
+function pct(e){const r=screen.getBoundingClientRect();return{x:Math.max(2,Math.min(98,(e.clientX-r.left)/r.width*100)),y:Math.max(6,Math.min(96,(e.clientY-r.top)/r.height*100))}}
+function drag(d,s,e,onDone){let moved=false;const sx=e.clientX,sy=e.clientY;d.classList.add("drag");
+  try{d.setPointerCapture(e.pointerId)}catch(_){}
+  const mv=ev=>{if(Math.abs(ev.clientX-sx)+Math.abs(ev.clientY-sy)>4)moved=true;if(!moved)return;const q=pct(ev);s.x=q.x;s.y=q.y;pos(d,s)};
+  const up=()=>{d.classList.remove("drag");d.removeEventListener("pointermove",mv);d.removeEventListener("pointerup",up);d.removeEventListener("pointercancel",up);onDone&&onDone(moved);saveStk()};
+  d.addEventListener("pointermove",mv);d.addEventListener("pointerup",up);d.addEventListener("pointercancel",up)}
+$("#trayItems").innerHTML=Object.keys(STK).map(k=>`<button class="titem" data-k="${k}" aria-label="Add ${k} sticker">${STK[k].replace('class="face"','')}</button>`).join("");
+$$("#trayItems .titem").forEach(b=>b.addEventListener("pointerdown",e=>{
+  e.preventDefault();e.stopPropagation();
+  const q=pct(e),s={k:b.dataset.k,x:q.x,y:q.y,r:Math.round(Math.random()*30-15)};stickers.push(s);const d=stkEl(s);layer.appendChild(d);
+  drag(d,s,e,moved=>{if(!moved){s.x=15+Math.random()*70;s.y=22+Math.random()*44;pos(d,s);saveStk()}});
+}));
+function decor(on){screen.classList.toggle("decorating",on);tray.hidden=!on;$("#openStickers").setAttribute("aria-pressed",on)}
+$("#openStickers").onclick=e=>{e.stopPropagation();decor(!screen.classList.contains("decorating"))};
+$("#stkDone").onclick=()=>decor(false);
+$("#stkUndo").onclick=()=>{stickers.pop();renderStk();saveStk()};
+$("#stkClear").onclick=()=>{stickers=[];renderStk();saveStk()};
+
+
+/* =========================================================
+   CHAT — ask Amy, Gongzi or Yodi a question (answers are written by Amy, no AI)
+   ========================================================= */
+const EMAIL="jiayu.chen@berkeley.edu";
+const PALS={
+ amy:{name:"Amy",avatar:"assets/ip-face.jpg",status:"UC BERKELEY · ECON & DATA SCIENCE '28",
+   hello:"Hi! I'm Amy. Ask me anything about my work, school, art, or what I'm looking for.",
+   chips:["What are you looking for?","Tell me about your experience","What tools do you use?","What do you do for fun?","How did you build this site?","How can I reach you?"]},
+ gongzi:{name:"Gongzi",avatar:"assets/gongzi-1.jpg",status:"ORANGE CAT · 5 YRS · LIVES IN CHINA",photos:["gongzi-1"],
+   hello:"meow. I'm Gongzi, Amy's cat. I live in China.",
+   chips:["When is your birthday?","How old are you?","Where do you live?","Who is Yodi?","Can I pet you?"]},
+ yodi:{name:"Yodi",avatar:"assets/yodi-1.jpg",status:"BLACK LAB · 3 YRS · LIVES IN NEW YORK",photos:["yodi-1","yodi-2","yodi-3","yodi-4","yodi-5","yodi-6"],
+   hello:"WOOF! I'm Yodi, Amy's black lab! I live in New York!",
+   chips:["When is your birthday?","How old are you?","Where do you live?","Who is Gongzi?","Who's a good dog?"]}
+};
+const BDAY={gongzi:[2,26],yodi:[6,13]};
+function untilBday(m,d){const n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate());let b=new Date(n.getFullYear(),m-1,d);if(b<t)b=new Date(n.getFullYear()+1,m-1,d);return Math.round((b-t)/864e5)}
+function has(q,re){return re.test(q)}
+function petReply(id,q){
+  const cat=id==="gongzi",M=cat?"February 26":"June 13",[bm,bd]=BDAY[id],days=untilBday(bm,bd);
+  if(has(q,/birth|bday|b-day|born/)) return {t:days===0?`It's my birthday TODAY (${M})! ${cat?"Bring tuna.":"WOOF WOOF WOOF!"}`:`My birthday is ${M}. That's ${days} day${days===1?"":"s"} from now. ${cat?"I accept gifts.":"Will there be cake?!"}`};
+  if(has(q,/how old|\bage\b|years old/)) return {t:cat?"I'm 5 years old. Very wise.":"I'm 3! Still a puppy at heart!"};
+  if(has(q,/where|live|home|from|city|country|china|new york|\bny\b/)) return {t:cat?"I live in China. Amy is far away at Berkeley, so I guard the house.":"I live in New York! Lots of walks, lots of smells!"};
+  if(has(q,/yodi/)) return {t:cat?"Yodi is Amy's black lab. Yodi lives in New York, I live in China. Plenty of space between us. Good.":"That's me!!"};
+  if(has(q,/gongzi/)) return {t:cat?"That's me. Gongzi. Remember it.":"Gongzi is Amy's cat! Gongzi lives in China. I wanna be friends!!"};
+  if(has(q,/amy|owner|mom|human|parent/)) return {t:cat?"Amy is my human. She's studying at UC Berkeley. She should call more.":"Amy is my favorite human!! She's at UC Berkeley. I miss her!"};
+  if(has(q,/good (boy|girl|dog|pup)|who'?s a good/)) return {t:cat?"I am not a dog.":"ME!! IT'S ME!! *tail wagging intensifies*"};
+  if(has(q,/pet|cute|love|pretty|handsome|hug|scratch|belly/)) return {t:cat?"*slow blink* ...fine. You may pet me. Once.":"*flops over for belly rubs* YES PLEASE"};
+  if(has(q,/treat|snack|food|eat|hungry|dinner/)) return {t:cat?"Is that a snack question? I'm listening.":"FOOD?! Did someone say food?!"};
+  if(has(q,/name|who are you|what are you|breed|kind of/)) return {t:cat?"I'm Gongzi, a 5-year-old orange cat.":"I'm Yodi, a 3-year-old black Labrador!"};
+  if(has(q,/^(hi|hey|hello|yo|sup|hii+|heyy+)\b/)) return {t:cat?"meow.":"WOOF! Hi hi hi!"};
+  return {t:cat?"meow? I only understand a few things. Ask about my birthday, my age, or where I live.":"*tilts head* Woof? Try asking my birthday, my age, or where I live!"};
+}
+function amyReply(q){
+  const R=(t,open)=>({t,open});
+  if(has(q,/^(hi|hey|hello|yo|sup|hii+|heyy+)\b/)) return R("Hi! Thanks for stopping by. Ask me about my experience, my design work, or what I'm looking for.");
+  if(has(q,/anduril/)) return R("At Anduril I lead a 0→1 project defining requirements for an AI-native program management stack. I evaluated 4+ AI PM tools (Linear, Motion, Notion AI and more) and turned the gaps into product mockups and a buy / customize / build recommendation.","work");
+  if(has(q,/google|gcp|cloud/)) return R("For Google Cloud I analyzed 15+ GCP Console touchpoints, benchmarked 3 competing platforms, found 5 friction points in onboarding, and proposed 4 gamification strategies to help first-time users stick around.","work");
+  if(has(q,/avoice|\byc\b|y combinator/)) return R("At Avoice (YC) I led a team of 6 on 0→1 product research: 5+ specification systems across the U.S., U.K. and EU, 100+ pages of standards turned into one framework, and 10+ critical gaps flagged.","work");
+  if(has(q,/optima|paperless/)) return R("At Optima Paperless in New York I made 10+ pitch and strategy materials for 2 VC fundraises and 3+ enterprise sales, and supported the CEO on go-to-market.","work");
+  if(has(q,/ksg|korean standard|akij|bangladesh/)) return R("For Korean Standard Group I evaluated 10+ geotextile production specs for Akij Group's expansion in Bangladesh. My recommendations helped secure investment in two new production lines.","work");
+  if(has(q,/bsb|business (&|and) software/)) return R("I'm VP of Internal Affairs at Business & Software at Berkeley. I've led 5 project teams, sourced 20+ projects, and planned 13+ events.","work");
+  if(has(q,/kosmos|dance|k-?pop/)) return R("I'm Finance Chair at KOSMOS. I raised $2,000+ through local partnerships, grew our Reels viewership by 58%, and I design the club's posters and profile cards.","design");
+  if(has(q,/looking for|open to|hiring|hire|position|role|what (job|kind)|summer|internship/)) return R("I'm looking for Summer 2027 internships in product management, UX/UI, product design and data analytics.","work");
+  if(has(q,/experience|worked|work history|resume|cv|background|jobs?\b/)) return R("Right now I'm a Lead Senior Consultant on an AI program-management project for Anduril. Before that: Business Ops intern at Optima Paperless, PM at Avoice (YC), product strategy for Google Cloud, and product & data analysis for Korean Standard Group. Ask me about any of them!","work");
+  if(has(q,/data|python|sql|excel|analy/)) return R("I study Data Science and use Python, SQL and Excel. Most of my work is research-heavy: benchmarking competitors, analyzing specs, and tracking metrics like the 58% Reels growth at KOSMOS.","work");
+  if(has(q,/skill|tool|figma|adobe|canva|software/)) return R("Design: Figma, Adobe and Canva. Data: Python, SQL and Excel. Product: user research, journey mapping, roadmapping, competitive analysis and feature prioritization.","work");
+  if(has(q,/design|ux|ui\b|figma|portfolio|arena|poster/)) return R("Design-wise: the Dynamic Badminton Arena concept, all of KOSMOS's posters and profile cards, product mockups at Anduril, and this website. The Design Lab folder has the details.","design");
+  if(has(q,/\bart\b|artwork|paint|draw|sketch|illustrat/)) return R("I paint in acrylic and watercolor and draw in pen & ink. You can see my pieces in the Art Studio folder.","art");
+  if(has(q,/hockey|video|film|camera|\bedit/)) return R("I'm a videographer for Cal Ice Hockey. I film games and edit highlights. Reels are coming to the Rink Cam folder soon.","hockey");
+  if(has(q,/song|music|hamilton|listen/)) return R("“First Burn” from Hamilton. It's always on repeat.","life");
+  if(has(q,/language|chinese|mandarin|spanish|speak/)) return R("I'm fluent in English and Mandarin, and my Spanish is intermediate.","life");
+  if(has(q,/\bpets?\b|\bdog|\bcats?\b|yodi|gongzi|puppy|kitty/)) return R("I have two! Gongzi is my cat in China, and Yodi is my black lab in New York. Pick them on the left to chat with them.");
+  if(has(q,/fun|hobby|hobbies|free time|weekend|scuba|div(e|ing)|badminton/)) return R("Scuba diving is my favorite hobby. I also dance with KOSMOS, paint, play badminton, and film Cal Ice Hockey.","life");
+  if(has(q,/site|website|built|build|make this|made this|code|claude/)) return R("I designed this site around my own character and built it with Claude Code: the desktop, the folders, the pets, Clover Catch and the sticker desk.","wip");
+  if(has(q,/contact|email|reach|linkedin|connect|talk/)) return R(`Email me at ${EMAIL} or find me on LinkedIn. The Say Hi folder has both.`,"contact");
+  if(has(q,/school|major|study|studying|berkeley|college|grad|year|class/)) return R("I'm at UC Berkeley studying Economics & Data Science, graduating in May 2028.");
+  if(has(q,/who are you|about you|yourself|introduce/)) return R("I'm Amy (Jiayu) Chen: product strategist, designer, painter and Cal Ice Hockey videographer at UC Berkeley.");
+  if(has(q,/next|working on|side project|idea/)) return R("I'm always building something. Check the In Progress folder for what I'm working on now.","wip");
+  return R(`Good question, but I haven't saved an answer for that one yet. Email me at ${EMAIL} and I'll answer for real!`,"contact");
+}
+const CHAT={cur:"amy",log:{amy:[],gongzi:[],yodi:[]},busy:false};
+$("#pals").innerHTML=Object.entries(PALS).map(([id,p])=>`<button class="pal" role="tab" data-id="${id}" aria-selected="false"><img src="${p.avatar}" alt=""><span><b>${p.name}</b><small>${p.status}</small></span></button>`).join("");
+$$("#pals .pal").forEach(b=>b.onclick=()=>setPal(b.dataset.id));
+function setPal(id){
+  CHAT.cur=id;const p=PALS[id];
+  $$("#pals .pal").forEach(b=>b.setAttribute("aria-selected",b.dataset.id===id));
+  $("#chead").innerHTML=`<img src="${p.avatar}" alt=""><div><b>${p.name}</b><small>${p.status}</small></div>`+
+    (p.photos?`<div class="photos">${p.photos.map((f,i)=>`<button data-i="${i}" aria-label="See photo ${i+1} of ${p.name}"><img src="assets/${f}.jpg" alt=""></button>`).join("")}</div>`:"");
+  if(p.photos){const L=p.photos.map(f=>["assets/"+f+".jpg",p.name]);$$("#chead .photos button").forEach((b,i)=>b.onclick=()=>openLB(L,i))}
+  if(!CHAT.log[id].length)CHAT.log[id].push({me:false,t:p.hello});
+  $("#chips2").innerHTML=p.chips.map(c=>`<button class="chip">${c}</button>`).join("");
+  $$("#chips2 .chip").forEach(b=>b.onclick=()=>send(b.textContent));
+  $("#chatIn").placeholder=`Message ${p.name}…`;
+  renderChat();
+}
+function renderChat(typing){
+  const box=$("#msgs");box.innerHTML="";
+  CHAT.log[CHAT.cur].forEach(m=>{const d=document.createElement("div");d.className="msg"+(m.me?" me":"");d.textContent=m.t;
+    if(m.open&&FI[m.open]){const b=document.createElement("button");b.className="go";b.textContent="Open "+FI[m.open].name+" →";b.onclick=()=>openWin(m.open,b);d.appendChild(b)}
+    box.appendChild(d)});
+  if(typing){const d=document.createElement("div");d.className="msg typing";d.setAttribute("aria-label","typing");d.innerHTML="<span></span><span></span><span></span>";box.appendChild(d)}
+  box.scrollTop=box.scrollHeight;
+}
+function send(text){
+  text=String(text||"").trim().slice(0,240);if(!text||CHAT.busy)return;
+  const id=CHAT.cur,q=text.toLowerCase();CHAT.log[id].push({me:true,t:text});CHAT.busy=true;renderChat(true);
+  setTimeout(()=>{const r=id==="amy"?amyReply(q):petReply(id,q);CHAT.log[id].push({me:false,t:r.t,open:r.open});CHAT.busy=false;if(CHAT.cur===id)renderChat()},reduce?0:550+Math.random()*450);
+}
+$("#chatForm").addEventListener("submit",e=>{e.preventDefault();const i=$("#chatIn");send(i.value);i.value="";i.focus()});
+function openChat(id,from){setPal(id);openWin("chat",from);setTimeout(()=>$("#chatIn").focus({preventScroll:true}),60)}
+setPal("amy");
+$(".ip img").addEventListener("click",e=>{e.stopPropagation();openChat("amy",$(".ip"))});
+$$("[data-chat]").forEach(b=>b.addEventListener("click",()=>openChat(b.dataset.chat,b)));
+
+})();
+</script>
+</body>
+</html>
